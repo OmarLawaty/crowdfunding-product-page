@@ -27,22 +27,30 @@ img {
 body {
   margin: 0;
   padding: 0;
-  font: 400 16px 'Commissioner', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Commissioner', sans-serif !important;
+  background-color: rgba(122, 122, 122, 0.05);
   color: #7a7a7a;
   position: relative;
+}
+
+body.no-slider {
+  overflow: hidden;
 }
 
 header {
   background: url(../images/image-hero-desktop.jpg) no-repeat;
   background-size: cover;
+  width: 100%;
   height: 400px;
-  padding-top: 48px;
+  padding-top: 44px;
 }
 
 header::before {
   content: '';
   width: 100%;
-  height: 17%;
+  height: 120px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(transparent));
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
   position: absolute;
@@ -59,7 +67,6 @@ header::before {
           justify-content: space-between;
   padding: 0 8px 0 9px;
   position: absolute;
-  z-index: 100;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -67,6 +74,7 @@ header::before {
 
 .ui.container .logo {
   width: 11.5%;
+  margin-top: 4px;
 }
 
 .ui.container .nav-bar {
@@ -95,5 +103,420 @@ header::before {
 .ui.container .nav-bar ul li a {
   text-decoration: none;
   color: #fff;
+}
+
+main {
+  width: 50.7%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 280px;
+  padding-bottom: 100px;
+}
+
+main section {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.section1 {
+  margin-top: 29px;
+  text-align: center;
+  padding: 55px 0 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 24px;
+}
+
+.section1 .main-logo {
+  position: absolute;
+  width: 7.5%;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.section1 h1 {
+  color: black;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: 'Commissioner', sans-serif;
+}
+
+.section1 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 87%;
+  margin-top: 38px;
+}
+
+.section1 .buttons button {
+  height: 57px;
+  -webkit-appearance: unset;
+     -moz-appearance: unset;
+          appearance: unset;
+  border: 1px solid;
+  border-radius: 50px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.4px;
+  padding-right: 1px;
+}
+
+.section1 .buttons .global-back {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 205px;
+  background-color: #3cb4ac;
+  border: none;
+  color: #fff;
+  letter-spacing: 0.4px;
+  padding-right: 1px;
+  font: 700 15px 'Commissioner', sans-serif;
+  cursor: pointer;
+}
+
+.section1 .buttons .global-back:hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #147b74;
+}
+
+.section1 .buttons .bookmark {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 175px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(122, 122, 122, 0.1);
+  font: 700 15px 'Commissioner', sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+.section1 .buttons .bookmark .bookmark-icon {
+  width: 57px;
+  height: 57px;
+  border-radius: 25px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.section1 .buttons .bookmark .bookmark-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.section1 .buttons .bookmark .bookmark-icon svg circle {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.section1 .buttons .bookmark .bookmark-caption {
+  margin-left: 16px;
+  color: #7a7a7a;
+}
+
+.section1 .buttons .bookmark.bookmarked {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 190px;
+  background-color: rgba(122, 122, 122, 0.05);
+}
+
+.section1 .buttons .bookmark.bookmarked .bookmark-icon svg circle {
+  fill: #147b74;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.section1 .buttons .bookmark.bookmarked .bookmark-icon svg path {
+  fill: #fff;
+}
+
+.section1 .buttons .bookmark.bookmarked .bookmark-caption {
+  color: #147b74;
+}
+
+.section1 .buttons .bookmark.bookmarked:hover .bookmark-icon svg circle {
+  fill: #3cb4ac;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.section1 .buttons .bookmark:hover .bookmark-icon circle {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  fill: #7a7a7a;
+}
+
+.section2 {
+  padding: 50px 48px;
+}
+
+.section2 .numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 82%;
+  padding-bottom: 36px;
+}
+
+.section2 .numbers div h2 {
+  font-size: 31px;
+  font-weight: 700;
+  font-family: 'Commissioner', sans-serif;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.section2 .numbers div p {
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  color: rgba(122, 122, 122, 0.7);
+}
+
+.section2 .numbers .backers {
+  border: none;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  width: 44%;
+  text-align: center;
+}
+
+.section2 .numbers .backers h2,
+.section2 .numbers .backers p {
+  margin-right: 50px;
+}
+
+.section2 .numbers .days-left h2 {
+  padding-right: 28px;
+}
+
+.section2 .total-money-bar {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(122, 122, 122, 0.05);
+  border-radius: 25px;
+}
+
+.section2 .total-money-bar .earned-money-bar {
+  height: 12px;
+  background-color: #3cb4ac;
+  border-radius: 25px;
+}
+
+.section3 {
+  padding: 47px 48px;
+}
+
+.section3 .header-pledges h1 {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Commissioner', sans-serif;
+  color: black;
+  margin-bottom: 33px;
+}
+
+.section3 .header-pledges .pledge-description {
+  margin-bottom: 40px;
+}
+
+.section3 .header-pledges .pledge-description p {
+  line-height: 30px;
+}
+
+.section3 .header-pledges .pledge-description p:first-child {
+  margin-bottom: 30px;
+}
+
+.section3 .pledges {
+  border: 1px solid rgba(122, 122, 122, 0.2);
+  border-radius: 10px;
+  padding: 37px 30px 30px;
+}
+
+.section3 .pledges .pledge-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 23px;
+}
+
+.section3 .pledges .pledge-title h2 {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Commissioner', sans-serif;
+  color: black;
+}
+
+.section3 .pledges .pledge-title p {
+  font-size: 15px;
+  margin-right: 2px;
+  color: #3cb4ac;
+  font-weight: 500;
+}
+
+.section3 .pledges .pledge-description {
+  letter-spacing: 0.1px;
+  line-height: 30px;
+  margin-bottom: 24px;
+}
+
+.section3 .pledges .pledge-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section3 .pledges .pledge-info .select {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 156px;
+  margin-right: 1px;
+  height: 49px;
+  border-radius: 50px;
+  background-color: #3cb4ac;
+  color: #fff;
+  letter-spacing: 0px;
+  font: 500 14px 'Commissioner', sans-serif;
+}
+
+.section3 .pledges .pledge-info .select:hover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #147b74;
+}
+
+.section3 .pledges .pledge-info p {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section3 .pledges .pledge-info p .pledges-left {
+  font-size: 33px;
+  font-weight: 700;
+  color: black;
+}
+
+.section3 .pledges .pledge-info p span:last-child {
+  margin: 2px 0 0 8px;
+}
+
+.section3 .pledges:not(.pledges:last-child) {
+  margin-bottom: 25px;
+}
+
+.section3 .pledges.disabled {
+  border: 1px solid rgba(122, 122, 122, 0.2);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.section3 .pledges.disabled .pledge-title h2 {
+  color: #7a7a7a;
+}
+
+.section3 .pledges.disabled .pledge-title p {
+  color: rgba(60, 180, 172, 0.4);
+}
+
+.section3 .pledges.disabled .pledge-description {
+  color: rgba(122, 122, 122, 0.4);
+}
+
+.section3 .pledges.disabled .pledge-info .select {
+  background-color: #7a7a7a;
+  font: 700 13px 'Commissioner', sans-serif;
+}
+
+.section3 .pledges.disabled .pledge-info p .pledges-left {
+  color: #7a7a7a;
+}
+
+.section3 .pledges.disabled .pledge-info p span:last-child {
+  color: rgba(122, 122, 122, 0.4);
+}
+
+.section3 .pledges.disabled:not(.pledges:last-child) {
+  margin-bottom: 25px;
+}
+
+.done {
+  width: 100px;
+}
+
+.thanks.closed {
+  display: none;
+}
+
+.thanks {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.thanks .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #fff;
+  opacity: 100%;
+  z-index: 10;
+}
+
+.thanks .dim {
+  position: absolute;
+  background-color: rgba(122, 122, 122, 0.05);
+  opacity: 80%;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background: black;
 }
 /*# sourceMappingURL=styles.css.map */

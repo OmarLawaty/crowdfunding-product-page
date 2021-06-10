@@ -62,7 +62,7 @@
       </div>
     </header>
 
-    <!-- <main>
+    <main>
       <section class="section1">
         <div class="main-logo">
           <img src="./images/logo-mastercraft.svg" alt="" />
@@ -72,19 +72,31 @@
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
         <div class="buttons">
-          <button class="global-back">Back this project</button>
+          <button class="global-back global open-menu">
+            Back this project
+          </button>
 
-          <button class="bookmark">Bookmark</button>
+          <button class="bookmark">
+            <span class="bookmark-icon">
+              <svg>
+                <g fill="none" fill-rule="evenodd">
+                  <circle fill="#2F2F2F" cx="28" cy="28" r="28" />
+                  <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+                </g>
+              </svg>
+            </span>
+            <span class="bookmark-caption">Bookmark</span>
+          </button>
         </div>
       </section>
       <section class="section2">
         <div class="numbers">
           <div class="earnings">
-            <h2>$89,914</h2>
-            <p>of $100,000 backed</p>
+            <h2>$ <span class="paid-money">89,914</span></h2>
+            <p>of $ <span class="total-money">100,000</span> backed</p>
           </div>
           <div class="backers">
-            <h2>5,007</h2>
+            <h2 class="total-backers">5,007</h2>
             <p>total backers</p>
           </div>
           <div class="days-left">
@@ -92,8 +104,8 @@
             <p>days left</p>
           </div>
         </div>
-        <div class="total-money">
-          <div class="earned-money"></div>
+        <div class="total-money-bar">
+          <div class="earned-money-bar"></div>
         </div>
       </section>
       <section class="section3">
@@ -114,7 +126,7 @@
             </p>
           </div>
         </heder>
-        <div class="pledges">
+        <div class="pledges left-25-kit">
           <div class="pledge-title">
             <h2>Bamboo Stand</h2>
             <p>Pledge $25 or more</p>
@@ -125,11 +137,16 @@
             Backer member list.
           </p>
           <div class="pledge-info">
-            <p><span>101</span><span> left</span></p>
-            <button class="select">Select Reward</button>
+            <p>
+              <span class="more-25-backers pledges-left left-25">101</span
+              ><span> left</span>
+            </p>
+            <button class="select select-25 open-menu ui button left-25-button">
+              Select Reward
+            </button>
           </div>
         </div>
-        <div class="pledges">
+        <div class="pledges left-75-kit">
           <div class="pledge-title">
             <h2>Black Edition Stand</h2>
             <p>Pledge $75 or more</p>
@@ -140,11 +157,16 @@
             included.
           </p>
           <div class="pledge-info">
-            <p><span>64</span><span> left</span></p>
-            <button class="select">Select Reward</button>
+            <p>
+              <span class="more-75-backers pledges-left left-75">64</span
+              ><span> left</span>
+            </p>
+            <button class="select select-75 open-menu ui button left-75-button">
+              Select Reward
+            </button>
           </div>
         </div>
-        <div class="pledges">
+        <div class="pledges left-200-kit">
           <div class="pledge-title">
             <h2>Mahogany Special Edition</h2>
             <p>Pledge $200 or more</p>
@@ -155,8 +177,15 @@
             Shipping is included.
           </p>
           <div class="pledge-info">
-            <p><span>0</span><span> left</span></p>
-            <button class="select">Out of Stock</button>
+            <p>
+              <span class="more-200-backers pledges-left left-200">0</span
+              ><span> left</span>
+            </p>
+            <button
+              class="select select-200 open-menu ui button left-200-button"
+            >
+              Select Reward
+            </button>
           </div>
         </div>
       </section>
@@ -172,10 +201,17 @@
         </p>
       </div>
 
-      <div class="modal-pledge-noreward modal-pledge">
+      <div
+        class="
+          modal-pledge-noreward modal-pledge
+          select-noreward-pledge
+          noreward-modal
+        "
+      >
         <input
           type="radio"
           name="pledge-selected"
+          class="checked noreward"
           value="no-reward"
           id="no-reward"
         />
@@ -195,23 +231,33 @@
                   placeholder="Amount"
                   id="amount1"
                   min="1"
+                  class="more-1-input"
+                  maxlength="3"
               /></label>
             </div>
-            <button class="proceed">Continue</button>
+            <div class="actions">
+              <button class="proceed more-1 no-reward proceed-valid approve">
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="modal-pledge">
+      <div class="modal-pledge left-25-pledges-modal select-25-pledge">
         <input
           type="radio"
           name="pledge-selected"
+          class="checked left-25-pledges select-25-pledges"
           value="25-or-more"
           id="25-or-more"
         />
         <label for="25-or-more">Bamboo Stand</label>
         <span class="limit">Pledge $25 or more</span>
-        <p class="back-left">101 <span>left</span></p>
+        <p class="back-left">
+          <span class="more-25-backers pledges-left left-25">101</span>
+          <span>left</span>
+        </p>
         <p>
           You get an ergonomic stand made of natural bamboo. You've helped us
           launch our promotional campaign, and you’ll be added to a special
@@ -222,25 +268,38 @@
           <div class="pay">
             <div class="ui labeled input">
               <label for="amount2" class="ui label"
-                >$<input type="number" id="amount2" min="25" placeholder="25"
+                >$<input
+                  type="number"
+                  id="amount2"
+                  min="25"
+                  placeholder="25"
+                  class="more-25-input"
+                  maxlength="3"
               /></label>
             </div>
-
-            <button class="proceed">Continue</button>
+            <div class="actions">
+              <button class="proceed more-25 proceed-valid approve">
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="modal-pledge">
+      <div class="modal-pledge left-75-pledges-modal select-75-pledge">
         <input
           type="radio"
           name="pledge-selected"
+          class="checked left-75-pledges select-75-pledges"
           value="75-or-more"
           id="75-or-more"
         />
         <label for="75-or-more">Black Edition Stand</label>
         <span class="limit">Pledge $75 or more</span>
-        <p class="back-left">64 <span>left</span></p>
+        <p class="back-left">
+          <span class="more-75-backers pledges-left left-75">64</span>
+          <span>left</span>
+        </p>
         <p>
           You get a Black Special Edition computer stand and a personal thank
           you. You’ll be added to our Backer member list. Shipping is included.
@@ -250,25 +309,39 @@
           <div class="pay">
             <div class="ui labeled input">
               <label for="amount3" class="ui label"
-                >$ <input type="number" id="amount3" min="75" placeholder="75"
+                >$
+                <input
+                  type="number"
+                  id="amount3"
+                  min="75"
+                  placeholder="75"
+                  class="more-75-input"
+                  maxlength="3"
               /></label>
             </div>
-
-            <button class="proceed">Continue</button>
+            <div class="actions">
+              <button class="proceed more-75 proceed-valid approve">
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="modal-pledge">
+      <div class="modal-pledge left-200-pledges-modal select-200-pledge">
         <input
           type="radio"
           name="pledge-selected"
+          class="checked left-200-pledges select-200-pledges"
           value="200-or-more"
           id="200-or-more"
         />
         <label for="200-or-more"> Mahogany Special Edition</label>
         <span class="limit">Pledge $200 or more</span>
-        <p class="back-left">0 <span>left</span></p>
+        <p class="back-left">
+          <span class="more-200-backers pledges-left left-200">0</span>
+          <span>left</span>
+        </p>
         <p>
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
           personal thank you. You’ll be added to our Backer member list.
@@ -279,19 +352,26 @@
           <div class="pay">
             <div class="ui labeled input">
               <label for="amount4" class="ui label"
-                >$<input type="number" placeholder="200" id="amount4" min="200"
+                >$<input
+                  type="number"
+                  placeholder="200"
+                  id="amount4"
+                  min="200"
+                  class="more-200-input"
+                  maxlength="3"
               /></label>
             </div>
-
-            <button class="proceed">Continue</button>
+            <div class="actions">
+              <button class="proceed more-200 proceed-valid approve">
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="ui modal thanks">
-      <i class="close icon"></i>
-
+    <div class="thanks closed">
       <div class="content">
         <div class="done">
           <img src="./images/icon-check.svg" alt="" />
@@ -304,10 +384,9 @@
             completed.
           </p>
         </div>
+        <button class="ui positive icon button got-it">Got it!</button>
       </div>
-      <div class="actions">
-        <button class="ui positive icon button">Got it!</button>
-      </div>
-    </div> -->
+      <div class="dim"></div>
+    </div>
   </body>
 </html>

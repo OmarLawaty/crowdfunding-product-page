@@ -3,9 +3,11 @@
 // Primary Colors
 $Moderate-cyan: hsl(176, 50%, 47%);
 $Dark-cyan: hsl(176, 72%, 28%);
+$Background: rgba(122, 122, 122, 0.05);
 // Secondary Colors
 $Black: hsl(0, 0%, 0%);
 $Dark-gray: hsl(0, 0%, 48%);
+$light-Gray: hsla(0, 0%, 48%, 0.7);
 
 // Global Styles
 
@@ -37,9 +39,16 @@ img {
 body {
   margin: 0;
   padding: 0;
-  font: 400 16px 'Commissioner', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Commissioner', sans-serif !important;
+  background-color: $Background;
   color: $Dark-gray;
   position: relative;
+
+  &.no-slider {
+    overflow: hidden;
+  }
 }
 
 // Header Styles
@@ -47,13 +56,14 @@ body {
 header {
   background: url(../images/image-hero-desktop.jpg) no-repeat;
   background-size: cover;
+  width: 100%;
   height: 400px;
-  padding-top: 48px;
+  padding-top: 44px;
 
   &::before {
     content: '';
     width: 100%;
-    height: 17%;
+    height: 120px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
     position: absolute;
     top: 0;
@@ -66,12 +76,12 @@ header {
   justify-content: space-between;
   padding: 0 8px 0 9px;
   position: absolute;
-  z-index: 100;
   left: 50%;
   transform: translateX(-50%);
 
   .logo {
     width: 11.5%;
+    margin-top: 4px;
   }
 
   .nav-bar {
@@ -96,5 +106,395 @@ header {
         }
       }
     }
+  }
+}
+
+// Main Styles
+
+main {
+  width: 50.7%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 280px;
+  padding-bottom: 100px;
+
+  section {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 24px;
+  }
+}
+
+.section1 {
+  margin-top: 29px;
+  text-align: center;
+  padding: 55px 0 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+
+  .main-logo {
+    position: absolute;
+    width: 7.5%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  h1 {
+    color: $Black;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-family: 'Commissioner', sans-serif;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 87%;
+    margin-top: 38px;
+
+    button {
+      height: 57px;
+      appearance: unset;
+      border: 1px solid;
+      border-radius: 50px;
+      padding: 0;
+      margin: 0;
+      letter-spacing: 0.4px;
+      padding-right: 1px;
+    }
+
+    .global-back {
+      transition: all 0.3s;
+      width: 205px;
+      background-color: $Moderate-cyan;
+      border: none;
+      color: #fff;
+      letter-spacing: 0.4px;
+      padding-right: 1px;
+      font: 700 15px 'Commissioner', sans-serif;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s;
+        background-color: $Dark-cyan;
+      }
+    }
+
+    .bookmark {
+      transition: all 0.3s;
+      width: 175px;
+      display: flex;
+      align-items: center;
+      background-color: hsla(0, 0%, 48%, 0.1);
+      font: 700 15px 'Commissioner', sans-serif;
+      border: none;
+      cursor: pointer;
+
+      .bookmark-icon {
+        width: 57px;
+        height: 57px;
+        border-radius: 25px;
+        transition: all 0.3s;
+
+        svg {
+          width: 100%;
+          height: 100%;
+
+          circle {
+            transition: all 0.3s;
+          }
+        }
+      }
+
+      .bookmark-caption {
+        margin-left: 16px;
+        color: $Dark-gray;
+      }
+
+      &.bookmarked {
+        transition: all 0.3s;
+        width: 190px;
+        background-color: $Background;
+
+        .bookmark-icon {
+          svg {
+            circle {
+              fill: $Dark-cyan;
+              transition: all 0.3s;
+            }
+
+            path {
+              fill: #fff;
+            }
+          }
+        }
+
+        .bookmark-caption {
+          color: $Dark-cyan;
+        }
+
+        &:hover {
+          .bookmark-icon {
+            svg {
+              circle {
+                fill: $Moderate-cyan;
+                transition: all 0.3s;
+              }
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .bookmark-icon {
+          circle {
+            transition: all 0.3s;
+            fill: $Dark-gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section2 {
+  padding: 50px 48px;
+
+  .numbers {
+    display: flex;
+    justify-content: space-between;
+    width: 82%;
+    padding-bottom: 36px;
+
+    div {
+      h2 {
+        font-size: 31px;
+        font-weight: 700;
+        font-family: 'Commissioner', sans-serif;
+        margin-bottom: 4px;
+        color: $Black;
+      }
+
+      p {
+        letter-spacing: -0.7px;
+        font-weight: 500;
+        color: $light-Gray;
+      }
+    }
+
+    .backers {
+      border: none;
+      border-left: 1px solid hsl(0, 0%, 90%);
+      border-right: 1px solid hsl(0, 0%, 90%);
+
+      width: 44%;
+      text-align: center;
+
+      h2,
+      p {
+        margin-right: 50px;
+      }
+    }
+
+    .days-left {
+      h2 {
+        padding-right: 28px;
+      }
+    }
+  }
+
+  .total-money-bar {
+    width: 100%;
+    height: 12px;
+    background-color: $Background;
+    border-radius: 25px;
+
+    .earned-money-bar {
+      height: 12px;
+      background-color: $Moderate-cyan;
+      border-radius: 25px;
+    }
+  }
+}
+
+.section3 {
+  padding: 47px 48px;
+
+  .header-pledges {
+    h1 {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Commissioner', sans-serif;
+      color: $Black;
+      margin-bottom: 33px;
+    }
+
+    .pledge-description {
+      margin-bottom: 40px;
+
+      p {
+        line-height: 30px;
+
+        &:first-child {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  .pledges {
+    border: 1px solid rgba(122, 122, 122, 0.2);
+    border-radius: 10px;
+    padding: 37px 30px 30px;
+
+    .pledge-title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 23px;
+
+      h2 {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: 'Commissioner', sans-serif;
+        color: $Black;
+      }
+
+      p {
+        font-size: 15px;
+        margin-right: 2px;
+        color: $Moderate-cyan;
+        font-weight: 500;
+      }
+    }
+
+    .pledge-description {
+      letter-spacing: 0.1px;
+      line-height: 30px;
+      margin-bottom: 24px;
+    }
+
+    .pledge-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .select {
+        transition: all 0.5s;
+        width: 156px;
+        margin-right: 1px;
+        height: 49px;
+        border-radius: 50px;
+        background-color: $Moderate-cyan;
+        color: #fff;
+        letter-spacing: 0px;
+        font: 500 14px 'Commissioner', sans-serif;
+
+        &:hover {
+          transition: all 0.5s;
+          background-color: $Dark-cyan;
+        }
+      }
+
+      p {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+
+        .pledges-left {
+          font-size: 33px;
+          font-weight: 700;
+          color: $Black;
+        }
+
+        span:last-child {
+          margin: 2px 0 0 8px;
+        }
+      }
+    }
+
+    &:not(.pledges:last-child) {
+      margin-bottom: 25px;
+    }
+
+    &.disabled {
+      border: 1px solid rgba(122, 122, 122, 0.2);
+      user-select: none;
+
+      .pledge-title {
+        h2 {
+          color: $Dark-gray;
+        }
+
+        p {
+          color: hsla(176, 50%, 47%, 0.4);
+        }
+      }
+
+      .pledge-description {
+        color: hsla(0, 0%, 48%, 0.4);
+      }
+
+      .pledge-info {
+        .select {
+          background-color: $Dark-gray;
+          font: 700 13px 'Commissioner', sans-serif;
+        }
+
+        p {
+          .pledges-left {
+            color: $Dark-gray;
+          }
+
+          span:last-child {
+            color: hsla(0, 0%, 48%, 0.4);
+          }
+        }
+      }
+
+      &:not(.pledges:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+.done {
+  width: 100px;
+}
+
+.thanks.closed {
+  display: none;
+}
+
+.thanks {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    opacity: 100%;
+    z-index: 10;
+  }
+
+  .dim {
+    position: absolute;
+    background-color: $Background;
+    opacity: 80%;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background: $Black;
   }
 }
