@@ -799,185 +799,6 @@ main {
   }
 }
 
-// .ui.modal.pledges {
-//   width: 50.5%;
-//   padding: 22px 46px 39px;
-
-//   & > .close {
-//     top: 1.4rem;
-//     right: 1.4rem;
-//     color: $Dark-gray;
-//   }
-
-//   .header {
-//     padding: 0;
-//     border: none;
-//     margin-bottom: 36px;
-
-//     h1 {
-//       margin: 27px 0 18px;
-//       font-size: 24px;
-//       font-weight: 700;
-//       font-family: 'Commissioner', sans-serif;
-//     }
-
-//     p {
-//       font-family: 'Commissioner', sans-serif;
-//       font-weight: 500;
-//       font-size: 16px;
-//       color: $light-Gray;
-//     }
-//   }
-
-//   .modal-pledge {
-//     border: 1px solid rgba(122, 122, 122, 0.2);
-//     border-radius: 10px;
-//     padding: 35px 28px 0;
-
-//     .pledge-header {
-//       display: flex;
-//       align-items: flex-start;
-//       height: fit-content;
-//       padding-bottom: 13px;
-
-//       label {
-//         font-family: 'Commissioner', sans-serif;
-//         font-weight: 700;
-//         color: $Black;
-//         font-size: 16px;
-//         letter-spacing: 0.1px;
-//         position: relative;
-//         cursor: pointer;
-//         user-select: none;
-//         display: flex;
-
-//         .checked {
-//           position: absolute;
-//           opacity: 0;
-//           cursor: pointer;
-//           width: 0;
-//           height: 0;
-
-//           &:checked ~ .real-button {
-//             background-color: #fff;
-
-//             &::after {
-//               transition: all 0.5s ease-in-out;
-//               width: 12px;
-//               height: 12px;
-//               background: $Moderate-cyan;
-//               opacity: 100%;
-//             }
-//           }
-//         }
-
-//         .real-button {
-//           display: inline-block;
-//           height: 25px;
-//           width: 25px;
-//           background-color: #fff;
-//           border: 1px solid rgba(122, 122, 122, 0.2);
-//           border-radius: 50%;
-//           margin-right: 22px;
-//           position: relative;
-
-//           &::after {
-//             content: '';
-//             transition: all 0.5s ease-in-out;
-//             position: absolute;
-//             display: block;
-//             opacity: 0;
-//             top: 50%;
-//             left: 50%;
-//             transform: translate(-50%, -50%);
-//             width: 0;
-//             height: 0;
-//             border-radius: 50%;
-//           }
-//         }
-//       }
-
-//       & + p {
-//         margin: -4px 0 31px 49px;
-//         letter-spacing: 0.44px;
-//         line-height: 28.6px;
-//       }
-//     }
-
-//     &:not(.modal-pledge-noreward) {
-//       .pledge-header {
-//         justify-content: space-between;
-//         padding-bottom: 15px;
-
-//         .back-left {
-//           margin-top: -6px;
-//           width: 60px;
-
-//           .pledges-left {
-//             font-family: 'Commissioner', sans-serif;
-//             font-weight: 700;
-//             font-size: 16px;
-//             color: $light-Gray;
-//             margin-right: 3px;
-//             color: $Black;
-//           }
-//         }
-//       }
-
-//       .radio-button {
-//         display: flex;
-
-//         label {
-//           margin-right: 15px;
-//         }
-
-//         .limit {
-//           font-size: 15px;
-//           letter-spacing: 0.5px;
-//           font-family: 'Commissioner', sans-serif;
-//           font-weight: 500;
-//           color: $Moderate-cyan;
-//         }
-//       }
-//     }
-
-//     .payment {
-//       transition: max-height 0.5s;
-//       max-height: 0;
-//       overflow: hidden;
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//     }
-
-//     &:not(.modal-pledge:last-child) {
-//       margin-bottom: 19px;
-//       margin-top: 25px;
-//     }
-
-//     &.on {
-//       border-color: $Moderate-cyan;
-
-//       .pledge-header + p {
-//         margin-bottom: 23px;
-//       }
-
-//       .payment {
-//         max-height: 1000px;
-//         transition: max-height 0.5s;
-//       }
-//     }
-//   }
-// }
-
-.done {
-  width: 100px;
-}
-
-.thanks.closed {
-  display: none;
-}
-
 .thanks {
   width: 100vw;
   height: 100vh;
@@ -985,15 +806,11 @@ main {
   top: 0;
   left: 0;
   z-index: 5;
+  transition: all 0.5s;
 
-  .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    opacity: 100%;
-    z-index: 10;
+  &.closed {
+    transition: all 0.5s;
+    display: none;
   }
 
   .dim {
@@ -1004,5 +821,61 @@ main {
     width: 100vw;
     height: 100vh;
     background: $Black;
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    opacity: 100%;
+    z-index: 10;
+    width: 37.6%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    text-align: center;
+
+    .done {
+      width: 90px;
+      margin: 47px 0 46px;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 32px;
+
+      .ui.header {
+        font-size: 25px;
+        letter-spacing: -0.4px;
+        font-family: 'Commissioner', sans-serif;
+        margin-bottom: 14px;
+      }
+
+      p:last-child {
+        width: 82%;
+        line-height: 30px;
+      }
+    }
+
+    .ui.positive {
+      width: 106px;
+      margin-left: 3px;
+      height: 48px;
+      border-radius: 25px;
+      background-color: $Moderate-cyan;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: $Dark-cyan;
+        transition: all 0.5s;
+      }
+    }
   }
 }

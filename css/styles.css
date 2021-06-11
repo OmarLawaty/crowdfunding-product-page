@@ -867,14 +867,6 @@ main section {
   transition: all 0.7s;
 }
 
-.done {
-  width: 100px;
-}
-
-.thanks.closed {
-  display: none;
-}
-
 .thanks {
   width: 100vw;
   height: 100vh;
@@ -882,6 +874,24 @@ main section {
   top: 0;
   left: 0;
   z-index: 5;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.thanks.closed {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  display: none;
+}
+
+.thanks .dim {
+  position: absolute;
+  background-color: rgba(122, 122, 122, 0.05);
+  opacity: 80%;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background: black;
 }
 
 .thanks .content {
@@ -893,15 +903,67 @@ main section {
   background-color: #fff;
   opacity: 100%;
   z-index: 10;
+  width: 37.6%;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 450px;
+  text-align: center;
 }
 
-.thanks .dim {
-  position: absolute;
-  background-color: rgba(122, 122, 122, 0.05);
-  opacity: 80%;
-  z-index: 5;
-  width: 100vw;
-  height: 100vh;
-  background: black;
+.thanks .content .done {
+  width: 90px;
+  margin: 47px 0 46px;
+}
+
+.thanks .content .description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 32px;
+}
+
+.thanks .content .description .ui.header {
+  font-size: 25px;
+  letter-spacing: -0.4px;
+  font-family: 'Commissioner', sans-serif;
+  margin-bottom: 14px;
+}
+
+.thanks .content .description p:last-child {
+  width: 82%;
+  line-height: 30px;
+}
+
+.thanks .content .ui.positive {
+  width: 106px;
+  margin-left: 3px;
+  height: 48px;
+  border-radius: 25px;
+  background-color: #3cb4ac;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.thanks .content .ui.positive:hover {
+  background-color: #147b74;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 /*# sourceMappingURL=styles.css.map */
