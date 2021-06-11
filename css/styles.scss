@@ -138,6 +138,7 @@ main {
   .main-logo {
     position: absolute;
     width: 7.5%;
+    max-width: 70px;
     top: 0;
     left: 50%;
     transform: translate(-50%);
@@ -461,6 +462,513 @@ main {
     }
   }
 }
+
+// Pledges Modal Styles
+
+.ui.modal.pledges {
+  width: 50.7%;
+  padding: 22px 47px 24px;
+
+  & > .close {
+    top: 1.4rem;
+    right: 1.4rem;
+    color: $Dark-gray;
+    transition: all 0.5s;
+
+    &:hover {
+      transition: all 0.5s;
+      color: $Black;
+    }
+  }
+
+  .header {
+    padding: 0;
+    border: none;
+    margin-bottom: 36px;
+
+    h1 {
+      margin: 24px 0 18px;
+      font-size: 24px;
+      font-weight: 700;
+      font-family: 'Commissioner', sans-serif;
+    }
+
+    p {
+      font-family: 'Commissioner', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: $light-Gray;
+    }
+  }
+
+  .modal-pledge {
+    transition: all 0.5s;
+    border: 1px solid rgba(122, 122, 122, 0.2);
+    border-radius: 10px;
+    padding: 35px 0 0 0;
+
+    .pledge-header {
+      margin-left: 28px;
+
+      label {
+        font-family: 'Commissioner', sans-serif;
+        font-weight: 700;
+        transition: all 0.5s;
+        color: $Black;
+        font-size: 16px;
+        letter-spacing: 0.1px;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+
+        &:hover {
+          color: $Moderate-cyan;
+          transition: all 0.5s;
+
+          .real-button {
+            border-color: $Moderate-cyan;
+            transition: all 0.5s;
+          }
+        }
+
+        .checked {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+
+          &:checked ~ .real-button {
+            background-color: #fff;
+            &::after {
+              transition: all 0.5s ease-in-out;
+              width: 12px;
+              height: 12px;
+              background: $Moderate-cyan;
+              opacity: 100%;
+            }
+          }
+        }
+
+        .real-button {
+          display: inline-block;
+          height: 25px;
+          width: 25px;
+          transition: all 0.5s;
+          background-color: #fff;
+          border: 1px solid rgba(122, 122, 122, 0.2);
+          border-radius: 50%;
+          margin-right: 22px;
+          position: relative;
+
+          &::after {
+            content: '';
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            display: block;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    &.modal-pledge-noreward {
+      margin-bottom: 23px;
+
+      .pledge-header {
+        display: flex;
+        align-items: flex-start;
+        height: fit-content;
+
+        & + p {
+          margin: 6px 0 30px 76px;
+          letter-spacing: -0.43px;
+          line-height: 29.3px;
+          font-family: 'Commissioner', sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+        }
+      }
+    }
+
+    &.limited-pledge {
+      margin-bottom: 23px;
+
+      .pledge-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 21px 10px 0;
+
+        .radio-button {
+          display: flex;
+
+          label {
+            margin-right: 17px;
+          }
+
+          .limit {
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 500;
+            color: $Moderate-cyan;
+          }
+        }
+      }
+
+      .pledge-header + p {
+        margin: 0 10px 31px 76px;
+        font-size: 16px;
+        font-family: 'Commissioner', sans-serif;
+        letter-spacing: -0.44px;
+        line-height: 28px;
+      }
+
+      .back-left {
+        margin: -3px 7px 0 0px;
+        width: 65px;
+        text-align: end;
+
+        .pledges-left {
+          font-family: 'Commissioner', sans-serif;
+          font-weight: 700;
+          font-size: 18px;
+          color: $light-Gray;
+          margin-right: 3px;
+          color: $Black;
+        }
+
+        span:last-child {
+          margin-left: 3px;
+        }
+      }
+
+      &.select-75-pledge {
+        .pledge-header + p {
+          margin-right: 40px;
+        }
+      }
+    }
+
+    &.modal-pledge-noreward.disabled,
+    &.limited-pledge.disabled {
+      border: 1px solid rgba(122, 122, 122, 0.1);
+      user-select: none;
+
+      .pledge-header {
+        .radio-button {
+          label {
+            color: $Dark-gray;
+            cursor: default;
+          }
+
+          .real-button {
+            border: 1px solid rgba(122, 122, 122, 0.2);
+          }
+
+          .limit {
+            color: hsla(176, 50%, 47%, 0.4);
+          }
+        }
+
+        .back-left {
+          .pledges-left {
+            color: $Dark-gray;
+          }
+
+          span:last-child {
+            color: hsla(0, 0%, 48%, 0.4);
+          }
+        }
+      }
+
+      .pledge-header + p {
+        color: hsla(0, 0%, 48%, 0.4);
+      }
+    }
+
+    .payment {
+      transition: all 0.7s;
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 0;
+
+      & p:first-child {
+        font-size: 15px;
+      }
+
+      .pay {
+        display: flex;
+        justify-content: space-between;
+
+        .proceed {
+          transition: all 0.5s;
+          width: 108px;
+          height: 47px;
+          border-radius: 25px;
+          border: none;
+          color: #fff;
+          background-color: $Moderate-cyan;
+          font-family: 'Commissioner', sans-serif;
+          margin-left: 15px;
+          cursor: pointer;
+
+          &:hover {
+            transition: all 0.5s;
+            background-color: $Dark-cyan;
+          }
+        }
+
+        .ui.label {
+          transition: all 0.5s;
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          width: 100px;
+          height: 47px;
+          border: 1px solid;
+          border-radius: 25px;
+          background-color: #fff;
+          cursor: pointer;
+
+          input {
+            transition: all 0.5s;
+            height: 100%;
+            width: 65%;
+            font-weight: 700;
+            font-family: 'Commissioner', sans-serif;
+            text-align: start;
+            border: none;
+            appearance: textfield;
+            margin-left: 7px;
+            outline: none;
+            cursor: pointer;
+          }
+
+          &.error {
+            transition: all 0.5s;
+            border-color: red;
+
+            input {
+              transition: all 0.5s;
+              color: red;
+            }
+          }
+
+          &:hover {
+            transition: all 0.5s;
+            border-color: $Dark-cyan;
+          }
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -28px;
+        width: calc(100% + 28px);
+        border: 1px solid rgba(122, 122, 122, 0.2);
+      }
+    }
+
+    &.on {
+      transition: border-color 0.7s;
+      border-color: $Moderate-cyan;
+
+      .limit {
+        font-weight: 700;
+      }
+
+      .payment {
+        max-height: 1000px;
+        padding: 25px 28px;
+        transition: all 0.7s;
+      }
+    }
+  }
+}
+
+// .ui.modal.pledges {
+//   width: 50.5%;
+//   padding: 22px 46px 39px;
+
+//   & > .close {
+//     top: 1.4rem;
+//     right: 1.4rem;
+//     color: $Dark-gray;
+//   }
+
+//   .header {
+//     padding: 0;
+//     border: none;
+//     margin-bottom: 36px;
+
+//     h1 {
+//       margin: 27px 0 18px;
+//       font-size: 24px;
+//       font-weight: 700;
+//       font-family: 'Commissioner', sans-serif;
+//     }
+
+//     p {
+//       font-family: 'Commissioner', sans-serif;
+//       font-weight: 500;
+//       font-size: 16px;
+//       color: $light-Gray;
+//     }
+//   }
+
+//   .modal-pledge {
+//     border: 1px solid rgba(122, 122, 122, 0.2);
+//     border-radius: 10px;
+//     padding: 35px 28px 0;
+
+//     .pledge-header {
+//       display: flex;
+//       align-items: flex-start;
+//       height: fit-content;
+//       padding-bottom: 13px;
+
+//       label {
+//         font-family: 'Commissioner', sans-serif;
+//         font-weight: 700;
+//         color: $Black;
+//         font-size: 16px;
+//         letter-spacing: 0.1px;
+//         position: relative;
+//         cursor: pointer;
+//         user-select: none;
+//         display: flex;
+
+//         .checked {
+//           position: absolute;
+//           opacity: 0;
+//           cursor: pointer;
+//           width: 0;
+//           height: 0;
+
+//           &:checked ~ .real-button {
+//             background-color: #fff;
+
+//             &::after {
+//               transition: all 0.5s ease-in-out;
+//               width: 12px;
+//               height: 12px;
+//               background: $Moderate-cyan;
+//               opacity: 100%;
+//             }
+//           }
+//         }
+
+//         .real-button {
+//           display: inline-block;
+//           height: 25px;
+//           width: 25px;
+//           background-color: #fff;
+//           border: 1px solid rgba(122, 122, 122, 0.2);
+//           border-radius: 50%;
+//           margin-right: 22px;
+//           position: relative;
+
+//           &::after {
+//             content: '';
+//             transition: all 0.5s ease-in-out;
+//             position: absolute;
+//             display: block;
+//             opacity: 0;
+//             top: 50%;
+//             left: 50%;
+//             transform: translate(-50%, -50%);
+//             width: 0;
+//             height: 0;
+//             border-radius: 50%;
+//           }
+//         }
+//       }
+
+//       & + p {
+//         margin: -4px 0 31px 49px;
+//         letter-spacing: 0.44px;
+//         line-height: 28.6px;
+//       }
+//     }
+
+//     &:not(.modal-pledge-noreward) {
+//       .pledge-header {
+//         justify-content: space-between;
+//         padding-bottom: 15px;
+
+//         .back-left {
+//           margin-top: -6px;
+//           width: 60px;
+
+//           .pledges-left {
+//             font-family: 'Commissioner', sans-serif;
+//             font-weight: 700;
+//             font-size: 16px;
+//             color: $light-Gray;
+//             margin-right: 3px;
+//             color: $Black;
+//           }
+//         }
+//       }
+
+//       .radio-button {
+//         display: flex;
+
+//         label {
+//           margin-right: 15px;
+//         }
+
+//         .limit {
+//           font-size: 15px;
+//           letter-spacing: 0.5px;
+//           font-family: 'Commissioner', sans-serif;
+//           font-weight: 500;
+//           color: $Moderate-cyan;
+//         }
+//       }
+//     }
+
+//     .payment {
+//       transition: max-height 0.5s;
+//       max-height: 0;
+//       overflow: hidden;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//     }
+
+//     &:not(.modal-pledge:last-child) {
+//       margin-bottom: 19px;
+//       margin-top: 25px;
+//     }
+
+//     &.on {
+//       border-color: $Moderate-cyan;
+
+//       .pledge-header + p {
+//         margin-bottom: 23px;
+//       }
+
+//       .payment {
+//         max-height: 1000px;
+//         transition: max-height 0.5s;
+//       }
+//     }
+//   }
+// }
 
 .done {
   width: 100px;

@@ -208,14 +208,20 @@
           noreward-modal
         "
       >
-        <input
-          type="radio"
-          name="pledge-selected"
-          class="checked noreward"
-          value="no-reward"
-          id="no-reward"
-        />
-        <label for="no-reward">Pledge with no reward</label>
+        <div class="pledge-header">
+          <label for="no-reward">
+            <input
+              type="radio"
+              name="pledge-selected"
+              class="checked noreward"
+              value="no-reward"
+              id="no-reward"
+            />
+            <span class="real-button"></span>
+            Pledge with no reward</label
+          >
+        </div>
+
         <p>
           Choose to support us without a reward if you simply believe in our
           project. As a backer, you will be signed up to receive product updates
@@ -225,7 +231,7 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount1" class="ui label"
+              <label for="amount1" class="ui label more-1-input-container"
                 >$<input
                   type="number"
                   placeholder="Amount"
@@ -244,20 +250,35 @@
         </div>
       </div>
 
-      <div class="modal-pledge left-25-pledges-modal select-25-pledge">
-        <input
-          type="radio"
-          name="pledge-selected"
-          class="checked left-25-pledges select-25-pledges"
-          value="25-or-more"
-          id="25-or-more"
-        />
-        <label for="25-or-more">Bamboo Stand</label>
-        <span class="limit">Pledge $25 or more</span>
-        <p class="back-left">
-          <span class="more-25-backers pledges-left left-25">101</span>
-          <span>left</span>
-        </p>
+      <div
+        class="
+          modal-pledge
+          left-25-pledges-modal
+          select-25-pledge
+          limited-pledge
+        "
+      >
+        <div class="pledge-header">
+          <div class="radio-button">
+            <label for="25-or-more"
+              ><input
+                type="radio"
+                name="pledge-selected"
+                class="checked left-25-pledges select-25-pledges"
+                value="25-or-more"
+                id="25-or-more"
+              />
+              <span class="real-button"></span>
+              Bamboo Stand</label
+            >
+            <span class="limit">Pledge $25 or more</span>
+          </div>
+          <p class="back-left">
+            <span class="more-25-backers pledges-left left-25">101</span>
+            <span>left</span>
+          </p>
+        </div>
+
         <p>
           You get an ergonomic stand made of natural bamboo. You've helped us
           launch our promotional campaign, and you’ll be added to a special
@@ -267,7 +288,7 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount2" class="ui label"
+              <label for="amount2" class="ui label more-25-input-container"
                 >$<input
                   type="number"
                   id="amount2"
@@ -286,20 +307,35 @@
         </div>
       </div>
 
-      <div class="modal-pledge left-75-pledges-modal select-75-pledge">
-        <input
-          type="radio"
-          name="pledge-selected"
-          class="checked left-75-pledges select-75-pledges"
-          value="75-or-more"
-          id="75-or-more"
-        />
-        <label for="75-or-more">Black Edition Stand</label>
-        <span class="limit">Pledge $75 or more</span>
-        <p class="back-left">
-          <span class="more-75-backers pledges-left left-75">64</span>
-          <span>left</span>
-        </p>
+      <div
+        class="
+          modal-pledge
+          left-75-pledges-modal
+          select-75-pledge
+          limited-pledge
+        "
+      >
+        <div class="pledge-header">
+          <div class="radio-button">
+            <label for="75-or-more"
+              ><input
+                type="radio"
+                name="pledge-selected"
+                class="checked left-75-pledges select-75-pledges"
+                value="75-or-more"
+                id="75-or-more"
+              />
+              <span class="real-button"></span>
+              Black Edition Stand</label
+            >
+            <span class="limit">Pledge $75 or more</span>
+          </div>
+          <p class="back-left">
+            <span class="more-75-backers pledges-left left-75">64</span>
+            <span>left</span>
+          </p>
+        </div>
+
         <p>
           You get a Black Special Edition computer stand and a personal thank
           you. You’ll be added to our Backer member list. Shipping is included.
@@ -308,7 +344,7 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount3" class="ui label"
+              <label for="amount3" class="ui label more-75-input-container"
                 >$
                 <input
                   type="number"
@@ -328,20 +364,36 @@
         </div>
       </div>
 
-      <div class="modal-pledge left-200-pledges-modal select-200-pledge">
-        <input
-          type="radio"
-          name="pledge-selected"
-          class="checked left-200-pledges select-200-pledges"
-          value="200-or-more"
-          id="200-or-more"
-        />
-        <label for="200-or-more"> Mahogany Special Edition</label>
-        <span class="limit">Pledge $200 or more</span>
-        <p class="back-left">
-          <span class="more-200-backers pledges-left left-200">0</span>
-          <span>left</span>
-        </p>
+      <div
+        class="
+          modal-pledge
+          left-200-pledges-modal
+          select-200-pledge
+          limited-pledge
+        "
+      >
+        <div class="pledge-header">
+          <div class="radio-button">
+            <label for="200-or-more"
+              ><input
+                type="radio"
+                name="pledge-selected"
+                class="checked left-200-pledges select-200-pledges"
+                value="200-or-more"
+                id="200-or-more"
+              />
+              <span class="real-button"></span>
+              Mahogany Special Edition</label
+            >
+            <span class="limit">Pledge $200 or more</span>
+          </div>
+
+          <p class="back-left">
+            <span class="more-200-backers pledges-left left-200">0</span>
+            <span>left</span>
+          </p>
+        </div>
+
         <p>
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
           personal thank you. You’ll be added to our Backer member list.
@@ -351,7 +403,7 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount4" class="ui label"
+              <label for="amount4" class="ui label more-200-input-container"
                 >$<input
                   type="number"
                   placeholder="200"

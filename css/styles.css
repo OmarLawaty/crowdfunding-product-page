@@ -141,6 +141,7 @@ main section {
 .section1 .main-logo {
   position: absolute;
   width: 7.5%;
+  max-width: 70px;
   top: 0;
   left: 50%;
   -webkit-transform: translate(-50%);
@@ -480,6 +481,390 @@ main section {
 
 .section3 .pledges.disabled:not(.pledges:last-child) {
   margin-bottom: 25px;
+}
+
+.ui.modal.pledges {
+  width: 50.7%;
+  padding: 22px 47px 24px;
+}
+
+.ui.modal.pledges > .close {
+  top: 1.4rem;
+  right: 1.4rem;
+  color: #7a7a7a;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.ui.modal.pledges > .close:hover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  color: black;
+}
+
+.ui.modal.pledges .header {
+  padding: 0;
+  border: none;
+  margin-bottom: 36px;
+}
+
+.ui.modal.pledges .header h1 {
+  margin: 24px 0 18px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Commissioner', sans-serif;
+}
+
+.ui.modal.pledges .header p {
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(122, 122, 122, 0.7);
+}
+
+.ui.modal.pledges .modal-pledge {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: 1px solid rgba(122, 122, 122, 0.2);
+  border-radius: 10px;
+  padding: 35px 0 0 0;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header {
+  margin-left: 28px;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label {
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 700;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  color: black;
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label:hover {
+  color: #3cb4ac;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label:hover .real-button {
+  border-color: #3cb4ac;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label .checked {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label .checked:checked ~ .real-button {
+  background-color: #fff;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label .checked:checked ~ .real-button::after {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  width: 12px;
+  height: 12px;
+  background: #3cb4ac;
+  opacity: 100%;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label .real-button {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #fff;
+  border: 1px solid rgba(122, 122, 122, 0.2);
+  border-radius: 50%;
+  margin-right: 22px;
+  position: relative;
+}
+
+.ui.modal.pledges .modal-pledge .pledge-header label .real-button::after {
+  content: '';
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  display: block;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward {
+  margin-bottom: 23px;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward .pledge-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward .pledge-header + p {
+  margin: 6px 0 30px 76px;
+  letter-spacing: -0.43px;
+  line-height: 29.3px;
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge {
+  margin-bottom: 23px;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .pledge-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 21px 10px 0;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button label {
+  margin-right: 17px;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button .limit {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 500;
+  color: #3cb4ac;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .pledge-header + p {
+  margin: 0 10px 31px 76px;
+  font-size: 16px;
+  font-family: 'Commissioner', sans-serif;
+  letter-spacing: -0.44px;
+  line-height: 28px;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .back-left {
+  margin: -3px 7px 0 0px;
+  width: 65px;
+  text-align: end;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .back-left .pledges-left {
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(122, 122, 122, 0.7);
+  margin-right: 3px;
+  color: black;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .back-left span:last-child {
+  margin-left: 3px;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge.select-75-pledge .pledge-header + p {
+  margin-right: 40px;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled, .ui.modal.pledges .modal-pledge.limited-pledge.disabled {
+  border: 1px solid rgba(122, 122, 122, 0.1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button label, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button label {
+  color: #7a7a7a;
+  cursor: default;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .real-button, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .real-button {
+  border: 1px solid rgba(122, 122, 122, 0.2);
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .limit, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .limit {
+  color: rgba(60, 180, 172, 0.4);
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .back-left .pledges-left, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .back-left .pledges-left {
+  color: #7a7a7a;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .back-left span:last-child, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .back-left span:last-child {
+  color: rgba(122, 122, 122, 0.4);
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header + p, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header + p {
+  color: rgba(122, 122, 122, 0.4);
+}
+
+.ui.modal.pledges .modal-pledge .payment {
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  max-height: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding: 0;
+}
+
+.ui.modal.pledges .modal-pledge .payment p:first-child {
+  font-size: 15px;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .proceed {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 108px;
+  height: 47px;
+  border-radius: 25px;
+  border: none;
+  color: #fff;
+  background-color: #3cb4ac;
+  font-family: 'Commissioner', sans-serif;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .proceed:hover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #147b74;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .ui.label {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  width: 100px;
+  height: 47px;
+  border: 1px solid;
+  border-radius: 25px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .ui.label input {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  height: 100%;
+  width: 65%;
+  font-weight: 700;
+  font-family: 'Commissioner', sans-serif;
+  text-align: start;
+  border: none;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  margin-left: 7px;
+  outline: none;
+  cursor: pointer;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .ui.label.error {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-color: red;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .ui.label.error input {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  color: red;
+}
+
+.ui.modal.pledges .modal-pledge .payment .pay .ui.label:hover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-color: #147b74;
+}
+
+.ui.modal.pledges .modal-pledge .payment::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -28px;
+  width: calc(100% + 28px);
+  border: 1px solid rgba(122, 122, 122, 0.2);
+}
+
+.ui.modal.pledges .modal-pledge.on {
+  -webkit-transition: border-color 0.7s;
+  transition: border-color 0.7s;
+  border-color: #3cb4ac;
+}
+
+.ui.modal.pledges .modal-pledge.on .limit {
+  font-weight: 700;
+}
+
+.ui.modal.pledges .modal-pledge.on .payment {
+  max-height: 1000px;
+  padding: 25px 28px;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
 }
 
 .done {
