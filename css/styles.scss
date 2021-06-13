@@ -42,7 +42,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   font-family: 'Commissioner', sans-serif !important;
-  background-color: $Background;
+  background-color: #fff;
   color: $Dark-gray;
   position: relative;
 
@@ -130,6 +130,7 @@ main {
     background-color: #fff;
     border-radius: 10px;
     margin-bottom: 24px;
+    border: 0.5px solid hsla(176, 50%, 47%, 0.1);
   }
 }
 

@@ -30,7 +30,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   font-family: 'Commissioner', sans-serif !important;
-  background-color: rgba(122, 122, 122, 0.2);
+  background-color: #fff;
   color: #7a7a7a;
   position: relative;
 }
@@ -125,6 +125,7 @@ main section {
   background-color: #fff;
   border-radius: 10px;
   margin-bottom: 24px;
+  border: 0.5px solid rgba(60, 180, 172, 0.1);
 }
 
 .section1 {
