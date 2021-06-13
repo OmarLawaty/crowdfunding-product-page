@@ -3,7 +3,7 @@
 // Primary Colors
 $Moderate-cyan: hsl(176, 50%, 47%);
 $Dark-cyan: hsl(176, 72%, 28%);
-$Background: rgba(122, 122, 122, 0.05);
+$Background: rgba(122, 122, 122, 0.2);
 // Secondary Colors
 $Black: hsl(0, 0%, 0%);
 $Dark-gray: hsl(0, 0%, 48%);
@@ -68,6 +68,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
   }
 }
 
@@ -75,16 +76,22 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 0 8px 0 9px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 
   .logo {
+    position: relative;
+    z-index: 6;
     width: 11.5%;
+    max-width: 275px;
     margin-top: 4px;
   }
 
+  .humburger {
+    display: none;
+    cursor: pointer;
+  }
+
   .nav-bar {
+    z-index: 5;
     width: 20.3%;
     font-size: 13px;
     letter-spacing: 0.2px;
@@ -138,7 +145,7 @@ main {
   .main-logo {
     position: absolute;
     width: 7.5%;
-    max-width: 70px;
+    width: 55px;
     top: 0;
     left: 50%;
     transform: translate(-50%);
@@ -291,7 +298,6 @@ main {
       border: none;
       border-left: 1px solid hsl(0, 0%, 90%);
       border-right: 1px solid hsl(0, 0%, 90%);
-
       width: 44%;
       text-align: center;
 
@@ -464,7 +470,6 @@ main {
 }
 
 // Pledges Modal Styles
-
 .ui.modal.pledges {
   width: 50.7%;
   padding: 22px 47px 24px;
@@ -599,11 +604,18 @@ main {
 
     &.limited-pledge {
       margin-bottom: 23px;
+      display: grid;
+      grid-template-areas:
+        'sec1 sec1 sec1 sec2'
+        'sec3 sec3 sec3 sec3'
+        '. . . .'
+        'sec4 sec4 sec4 sec4';
 
       .pledge-header {
         display: flex;
         justify-content: space-between;
         padding: 0 21px 10px 0;
+        grid-area: sec1;
 
         .radio-button {
           display: flex;
@@ -628,68 +640,32 @@ main {
         font-family: 'Commissioner', sans-serif;
         letter-spacing: -0.44px;
         line-height: 28px;
+        grid-area: sec3;
       }
 
       .back-left {
-        margin: -3px 7px 0 0px;
-        width: 65px;
-        text-align: end;
-
-        .pledges-left {
-          font-family: 'Commissioner', sans-serif;
-          font-weight: 700;
-          font-size: 18px;
-          color: $light-Gray;
-          margin-right: 3px;
-          color: $Black;
-        }
+        margin: -3px 0px 0 35px;
+        text-align: center;
+        grid-area: sec2;
 
         span:last-child {
           margin-left: 3px;
         }
       }
 
+      .pledges-left {
+        font-family: 'Commissioner', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: $light-Gray;
+        margin-right: 3px;
+        color: $Black;
+      }
+
       &.select-75-pledge {
         .pledge-header + p {
           margin-right: 40px;
         }
-      }
-    }
-
-    &.modal-pledge-noreward.disabled,
-    &.limited-pledge.disabled {
-      border: 1px solid rgba(122, 122, 122, 0.1);
-      user-select: none;
-
-      .pledge-header {
-        .radio-button {
-          label {
-            color: $Dark-gray;
-            cursor: default;
-          }
-
-          .real-button {
-            border: 1px solid rgba(122, 122, 122, 0.2);
-          }
-
-          .limit {
-            color: hsla(176, 50%, 47%, 0.4);
-          }
-        }
-
-        .back-left {
-          .pledges-left {
-            color: $Dark-gray;
-          }
-
-          span:last-child {
-            color: hsla(0, 0%, 48%, 0.4);
-          }
-        }
-      }
-
-      .pledge-header + p {
-        color: hsla(0, 0%, 48%, 0.4);
       }
     }
 
@@ -702,8 +678,9 @@ main {
       align-items: center;
       position: relative;
       padding: 0;
+      grid-area: sec4;
 
-      & p:first-child {
+      p:first-child {
         font-size: 15px;
       }
 
@@ -782,6 +759,43 @@ main {
       }
     }
 
+    &.modal-pledge-noreward.disabled,
+    &.limited-pledge.disabled {
+      border: 1px solid rgba(122, 122, 122, 0.1);
+      user-select: none;
+
+      .pledge-header {
+        .radio-button {
+          label {
+            color: $Dark-gray;
+            cursor: default;
+          }
+
+          .real-button {
+            border: 1px solid rgba(122, 122, 122, 0.2);
+          }
+
+          .limit {
+            color: hsla(176, 50%, 47%, 0.4);
+          }
+        }
+
+        .back-left {
+          .pledges-left {
+            color: $Dark-gray;
+          }
+
+          span:last-child {
+            color: hsla(0, 0%, 48%, 0.4);
+          }
+        }
+      }
+
+      .pledge-header + p {
+        color: hsla(0, 0%, 48%, 0.4);
+      }
+    }
+
     &.on {
       transition: border-color 0.7s;
       border-color: $Moderate-cyan;
@@ -799,6 +813,7 @@ main {
   }
 }
 
+// Thanks Modal Styles
 .thanks {
   width: 100vw;
   height: 100vh;
@@ -875,6 +890,480 @@ main {
       &:hover {
         background-color: $Dark-cyan;
         transition: all 0.5s;
+      }
+    }
+  }
+}
+
+// Other Devices
+// Mobile Devices
+@media (max-width: 1100px) {
+  // Header Styles
+  header {
+    height: 300px;
+    background: url(../images/image-hero-mobile.jpg);
+    background-size: cover;
+    padding-top: 28px;
+  }
+
+  .ui.container {
+    .logo {
+      width: 39%;
+    }
+
+    .nav-bar {
+      position: absolute;
+      top: -10000px;
+      left: 0;
+      transition: all 0.5s;
+      width: 100vw;
+      opacity: 0;
+
+      &.open {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 100%;
+        transition: all 0.3s ease;
+
+        & + .humburger {
+          display: block;
+          z-index: 1000;
+
+          hr {
+            transition: all 0.3s ease;
+          }
+
+          .top-line {
+            transform: rotate(-45deg);
+            margin-bottom: -16px;
+            margin-top: 13px;
+          }
+
+          .middle-line {
+            opacity: 0;
+            transition: all 0.5s;
+          }
+
+          .bottom-line {
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      div {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, $Black, transparent);
+        opacity: 80%;
+        z-index: 5;
+        width: 100vw;
+        height: 100vh;
+        transition: all 0.3s ease;
+      }
+
+      ul {
+        transition: all 0.3s ease;
+        position: absolute;
+        width: 87%;
+        top: 88px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        opacity: 100%;
+        z-index: 1000;
+        border-radius: 5px;
+
+        li {
+          width: 100%;
+          height: 70.6px;
+          display: flex;
+          align-items: center;
+          padding-left: 22px;
+
+          &:not(li:last-child) {
+            border-bottom: 1px solid $Background;
+          }
+
+          a {
+            color: $Black;
+            font-size: 18px;
+            font-family: 'Commissioner', sans-serif !important;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .humburger {
+      position: relative;
+      display: block;
+      width: 16px;
+
+      hr {
+        margin-bottom: -5.7px;
+        border: 1px solid #fff;
+        background-color: #fff;
+        transition: all 0.3s ease;
+        height: 1px;
+        border-radius: 25px;
+      }
+
+      .top-line {
+        transform: rotate(0);
+      }
+
+      .middle-line {
+        opacity: 100%;
+        transition: all 0.5s ease;
+      }
+
+      .bottom-line {
+        transform: rotate(0);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Main Styles
+  main {
+    width: 87.5%;
+    top: 215px;
+  }
+
+  .section1 {
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+    h1 {
+      font-size: 20px;
+      width: 60%;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      width: 85%;
+      line-height: 23px;
+    }
+
+    .buttons {
+      width: 85%;
+      margin-top: 24px;
+
+      .global-back {
+        width: 213px;
+      }
+
+      .bookmark {
+        width: max-content;
+
+        .bookmark-caption {
+          display: none;
+        }
+
+        &.bookmarked {
+          width: 58px;
+        }
+      }
+    }
+  }
+
+  .section2 {
+    padding: 31px 27px 39px;
+
+    .numbers {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 29px;
+
+      div {
+        width: max-content;
+
+        h2 {
+          margin: 0 !important;
+          padding: 0 !important;
+          margin-bottom: 7px !important;
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+
+        &:not(div:last-child) {
+          margin-bottom: 22px;
+        }
+      }
+
+      .earnings {
+        p {
+          font-size: 15px;
+          letter-spacing: -0.6px;
+          font-weight: 400;
+        }
+      }
+
+      .backers {
+        border: none;
+        border-top: 1px solid hsl(0, 0%, 90%);
+        border-bottom: 1px solid hsl(0, 0%, 90%);
+        width: 37%;
+        padding: 23px 0;
+        letter-spacing: 1px;
+
+        p {
+          margin: 0;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .section3 {
+    padding: 40px 24px;
+
+    .header-pledges {
+      h1 {
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+
+      .pledge-description {
+        margin-bottom: 35px;
+
+        p {
+          line-height: 24px;
+          font-size: 14px;
+
+          &:first-child {
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+
+    .pledges {
+      padding: 22px 24px 23px;
+
+      .pledge-title {
+        flex-direction: column;
+        margin-bottom: 23px;
+
+        h2 {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+
+        p {
+          letter-spacing: -0.5px;
+        }
+      }
+
+      .pledge-description {
+        letter-spacing: 0px;
+        line-height: 24px;
+        font-size: 14px;
+        margin-bottom: 31px;
+      }
+
+      .pledge-info {
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+          margin-bottom: 30px;
+
+          .pledges-left {
+            letter-spacing: -1px;
+          }
+
+          span:last-child {
+            margin: 2px 0 0 10px;
+            margin: 2px 0 0 10px;
+            letter-spacing: -1px;
+          }
+        }
+      }
+    }
+  }
+
+  // Pledges Modal Styles
+  .ui.modal.pledges {
+    width: 87.4%;
+    padding: 22px 10px 24px;
+
+    & > .close {
+      top: 1.8rem !important;
+      right: 0.9rem !important;
+    }
+
+    .header {
+      padding-right: 15px !important;
+      margin-bottom: 15px;
+
+      h1 {
+        margin: 0px 0 25px;
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+
+    .modal-pledge {
+      width: 91%;
+      margin: 0 auto 23px;
+      position: relative;
+
+      padding-top: 32px;
+
+      .pledge-header {
+        margin-left: 22px;
+
+        label {
+          align-items: center;
+          font-size: 14px;
+
+          .real-button {
+            margin-right: 16px;
+          }
+        }
+      }
+
+      &.modal-pledge-noreward {
+        margin-bottom: 25px;
+
+        .pledge-header {
+          & + p {
+            margin: 33px 0 30px 23px;
+            font-size: 15px;
+            width: 80%;
+            line-height: 24px;
+          }
+        }
+      }
+
+      &.limited-pledge {
+        padding-top: 14px;
+        padding-bottom: 9px;
+        grid-template-areas:
+          'sec1'
+          'sec3'
+          'sec2'
+          'sec4';
+
+        .pledge-header {
+          position: relative;
+          padding: 0 0 10px 0;
+
+          .radio-button {
+            position: relative;
+
+            label {
+              margin-top: -5px;
+
+              .real-button {
+                margin-top: 22px;
+              }
+            }
+
+            .limit {
+              width: max-content;
+              position: absolute;
+              top: 36px;
+              left: 41px;
+              letter-spacing: 0px;
+              font-size: 14px;
+            }
+          }
+
+          & + p {
+            margin: 23px 0 30px 23px;
+            font-size: 15px;
+            width: 83%;
+            line-height: 24px;
+          }
+        }
+
+        .back-left {
+          margin: -6px 0 24px 23px;
+          text-align: start;
+        }
+      }
+
+      .payment {
+        flex-direction: column;
+      }
+
+      &.on {
+        .payment {
+          max-height: 1000px;
+          padding: 31px 0px 15px;
+          width: 100%;
+          transition: all 0.7s;
+
+          &::before {
+            left: 0;
+            width: 100%;
+          }
+
+          p:first-child {
+            font-size: 15px;
+            letter-spacing: -0.5px;
+          }
+
+          .pay {
+            padding-top: 18px;
+
+            .proceed {
+              width: 115px;
+              margin-left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Thanks Modal Styles
+  .thanks {
+    .content {
+      top: 50%;
+      width: 88%;
+      height: fit-content;
+
+      .done {
+        width: 63px;
+        margin: 32px 0 21px;
+      }
+
+      .description {
+        .ui.header {
+          font-size: 19px;
+          margin-bottom: 24px;
+        }
+
+        p:last-child {
+          line-height: 24px;
+          font-size: 13px;
+          letter-spacing: 0.44px;
+        }
+      }
+
+      .ui.positive {
+        margin-bottom: 35px;
       }
     }
   }

@@ -30,7 +30,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   font-family: 'Commissioner', sans-serif !important;
-  background-color: rgba(122, 122, 122, 0.05);
+  background-color: rgba(122, 122, 122, 0.2);
   color: #7a7a7a;
   position: relative;
 }
@@ -56,6 +56,7 @@ header::before {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 
 .ui.container {
@@ -66,18 +67,23 @@ header::before {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 8px 0 9px;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 
 .ui.container .logo {
+  position: relative;
+  z-index: 6;
   width: 11.5%;
+  max-width: 275px;
   margin-top: 4px;
 }
 
+.ui.container .humburger {
+  display: none;
+  cursor: pointer;
+}
+
 .ui.container .nav-bar {
+  z-index: 5;
   width: 20.3%;
   font-size: 13px;
   letter-spacing: 0.2px;
@@ -141,7 +147,7 @@ main section {
 .section1 .main-logo {
   position: absolute;
   width: 7.5%;
-  max-width: 70px;
+  width: 55px;
   top: 0;
   left: 50%;
   -webkit-transform: translate(-50%);
@@ -241,7 +247,7 @@ main section {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   width: 190px;
-  background-color: rgba(122, 122, 122, 0.05);
+  background-color: rgba(122, 122, 122, 0.2);
 }
 
 .section1 .buttons .bookmark.bookmarked .bookmark-icon svg circle {
@@ -319,7 +325,7 @@ main section {
 .section2 .total-money-bar {
   width: 100%;
   height: 12px;
-  background-color: rgba(122, 122, 122, 0.05);
+  background-color: rgba(122, 122, 122, 0.2);
   border-radius: 25px;
 }
 
@@ -641,6 +647,9 @@ main section {
 
 .ui.modal.pledges .modal-pledge.limited-pledge {
   margin-bottom: 23px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'sec1 sec1 sec1 sec2' 'sec3 sec3 sec3 sec3' '. . . .' 'sec4 sec4 sec4 sec4';
 }
 
 .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header {
@@ -651,6 +660,10 @@ main section {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 21px 10px 0;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: sec1;
 }
 
 .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button {
@@ -677,15 +690,25 @@ main section {
   font-family: 'Commissioner', sans-serif;
   letter-spacing: -0.44px;
   line-height: 28px;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: sec3;
 }
 
 .ui.modal.pledges .modal-pledge.limited-pledge .back-left {
-  margin: -3px 7px 0 0px;
-  width: 65px;
-  text-align: end;
+  margin: -3px 0px 0 35px;
+  text-align: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: sec2;
 }
 
-.ui.modal.pledges .modal-pledge.limited-pledge .back-left .pledges-left {
+.ui.modal.pledges .modal-pledge.limited-pledge .back-left span:last-child {
+  margin-left: 3px;
+}
+
+.ui.modal.pledges .modal-pledge.limited-pledge .pledges-left {
   font-family: 'Commissioner', sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -694,45 +717,8 @@ main section {
   color: black;
 }
 
-.ui.modal.pledges .modal-pledge.limited-pledge .back-left span:last-child {
-  margin-left: 3px;
-}
-
 .ui.modal.pledges .modal-pledge.limited-pledge.select-75-pledge .pledge-header + p {
   margin-right: 40px;
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled, .ui.modal.pledges .modal-pledge.limited-pledge.disabled {
-  border: 1px solid rgba(122, 122, 122, 0.1);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button label, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button label {
-  color: #7a7a7a;
-  cursor: default;
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .real-button, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .real-button {
-  border: 1px solid rgba(122, 122, 122, 0.2);
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .limit, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .limit {
-  color: rgba(60, 180, 172, 0.4);
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .back-left .pledges-left, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .back-left .pledges-left {
-  color: #7a7a7a;
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .back-left span:last-child, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .back-left span:last-child {
-  color: rgba(122, 122, 122, 0.4);
-}
-
-.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header + p, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header + p {
-  color: rgba(122, 122, 122, 0.4);
 }
 
 .ui.modal.pledges .modal-pledge .payment {
@@ -751,6 +737,10 @@ main section {
           align-items: center;
   position: relative;
   padding: 0;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: sec4;
 }
 
 .ui.modal.pledges .modal-pledge .payment p:first-child {
@@ -850,6 +840,39 @@ main section {
   border: 1px solid rgba(122, 122, 122, 0.2);
 }
 
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled, .ui.modal.pledges .modal-pledge.limited-pledge.disabled {
+  border: 1px solid rgba(122, 122, 122, 0.1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button label, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button label {
+  color: #7a7a7a;
+  cursor: default;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .real-button, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .real-button {
+  border: 1px solid rgba(122, 122, 122, 0.2);
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .limit, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .limit {
+  color: rgba(60, 180, 172, 0.4);
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .back-left .pledges-left, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .back-left .pledges-left {
+  color: #7a7a7a;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .back-left span:last-child, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .back-left span:last-child {
+  color: rgba(122, 122, 122, 0.4);
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header + p, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header + p {
+  color: rgba(122, 122, 122, 0.4);
+}
+
 .ui.modal.pledges .modal-pledge.on {
   -webkit-transition: border-color 0.7s;
   transition: border-color 0.7s;
@@ -886,7 +909,7 @@ main section {
 
 .thanks .dim {
   position: absolute;
-  background-color: rgba(122, 122, 122, 0.05);
+  background-color: rgba(122, 122, 122, 0.2);
   opacity: 80%;
   z-index: 5;
   width: 100vw;
@@ -965,5 +988,424 @@ main section {
   background-color: #147b74;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+@media (max-width: 1100px) {
+  header {
+    height: 300px;
+    background: url(../images/image-hero-mobile.jpg);
+    background-size: cover;
+    padding-top: 28px;
+  }
+  .ui.container .logo {
+    width: 39%;
+  }
+  .ui.container .nav-bar {
+    position: absolute;
+    top: -10000px;
+    left: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 100vw;
+    opacity: 0;
+  }
+  .ui.container .nav-bar.open {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 100%;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .ui.container .nav-bar.open + .humburger {
+    display: block;
+    z-index: 1000;
+  }
+  .ui.container .nav-bar.open + .humburger hr {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .ui.container .nav-bar.open + .humburger .top-line {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    margin-bottom: -16px;
+    margin-top: 13px;
+  }
+  .ui.container .nav-bar.open + .humburger .middle-line {
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .ui.container .nav-bar.open + .humburger .bottom-line {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .ui.container .nav-bar div {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
+    background: linear-gradient(to bottom, black, transparent);
+    opacity: 80%;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .ui.container .nav-bar ul {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 87%;
+    top: 88px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    opacity: 100%;
+    z-index: 1000;
+    border-radius: 5px;
+  }
+  .ui.container .nav-bar ul li {
+    width: 100%;
+    height: 70.6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-left: 22px;
+  }
+  .ui.container .nav-bar ul li:not(li:last-child) {
+    border-bottom: 1px solid rgba(122, 122, 122, 0.2);
+  }
+  .ui.container .nav-bar ul li a {
+    color: black;
+    font-size: 18px;
+    font-family: 'Commissioner', sans-serif !important;
+    font-weight: 500;
+  }
+  .ui.container .humburger {
+    position: relative;
+    display: block;
+    width: 16px;
+  }
+  .ui.container .humburger hr {
+    margin-bottom: -5.7px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 1px;
+    border-radius: 25px;
+  }
+  .ui.container .humburger .top-line {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  .ui.container .humburger .middle-line {
+    opacity: 100%;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .ui.container .humburger .bottom-line {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    margin-bottom: 0;
+  }
+  main {
+    width: 87.5%;
+    top: 215px;
+  }
+  .section1 {
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  .section1 h1 {
+    font-size: 20px;
+    width: 60%;
+    margin-bottom: 16px;
+  }
+  .section1 p {
+    font-size: 14px;
+    width: 85%;
+    line-height: 23px;
+  }
+  .section1 .buttons {
+    width: 85%;
+    margin-top: 24px;
+  }
+  .section1 .buttons .global-back {
+    width: 213px;
+  }
+  .section1 .buttons .bookmark {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .section1 .buttons .bookmark .bookmark-caption {
+    display: none;
+  }
+  .section1 .buttons .bookmark.bookmarked {
+    width: 58px;
+  }
+  .section2 {
+    padding: 31px 27px 39px;
+  }
+  .section2 .numbers {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    padding-bottom: 29px;
+  }
+  .section2 .numbers div {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .section2 .numbers div h2 {
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 7px !important;
+  }
+  .section2 .numbers div p {
+    margin: 0;
+    padding: 0;
+  }
+  .section2 .numbers div:not(div:last-child) {
+    margin-bottom: 22px;
+  }
+  .section2 .numbers .earnings p {
+    font-size: 15px;
+    letter-spacing: -0.6px;
+    font-weight: 400;
+  }
+  .section2 .numbers .backers {
+    border: none;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    width: 37%;
+    padding: 23px 0;
+    letter-spacing: 1px;
+  }
+  .section2 .numbers .backers p {
+    margin: 0;
+    font-size: 16px;
+  }
+  .section3 {
+    padding: 40px 24px;
+  }
+  .section3 .header-pledges h1 {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  .section3 .header-pledges .pledge-description {
+    margin-bottom: 35px;
+  }
+  .section3 .header-pledges .pledge-description p {
+    line-height: 24px;
+    font-size: 14px;
+  }
+  .section3 .header-pledges .pledge-description p:first-child {
+    margin-bottom: 24px;
+  }
+  .section3 .pledges {
+    padding: 22px 24px 23px;
+  }
+  .section3 .pledges .pledge-title {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 23px;
+  }
+  .section3 .pledges .pledge-title h2 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .section3 .pledges .pledge-title p {
+    letter-spacing: -0.5px;
+  }
+  .section3 .pledges .pledge-description {
+    letter-spacing: 0px;
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 31px;
+  }
+  .section3 .pledges .pledge-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .section3 .pledges .pledge-info p {
+    margin-bottom: 30px;
+  }
+  .section3 .pledges .pledge-info p .pledges-left {
+    letter-spacing: -1px;
+  }
+  .section3 .pledges .pledge-info p span:last-child {
+    margin: 2px 0 0 10px;
+    margin: 2px 0 0 10px;
+    letter-spacing: -1px;
+  }
+  .ui.modal.pledges {
+    width: 87.4%;
+    padding: 22px 10px 24px;
+  }
+  .ui.modal.pledges > .close {
+    top: 1.8rem !important;
+    right: 0.9rem !important;
+  }
+  .ui.modal.pledges .header {
+    padding-right: 15px !important;
+    margin-bottom: 15px;
+  }
+  .ui.modal.pledges .header h1 {
+    margin: 0px 0 25px;
+    font-size: 18px;
+  }
+  .ui.modal.pledges .header p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ui.modal.pledges .modal-pledge {
+    width: 91%;
+    margin: 0 auto 23px;
+    position: relative;
+    padding-top: 32px;
+  }
+  .ui.modal.pledges .modal-pledge .pledge-header {
+    margin-left: 22px;
+  }
+  .ui.modal.pledges .modal-pledge .pledge-header label {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 14px;
+  }
+  .ui.modal.pledges .modal-pledge .pledge-header label .real-button {
+    margin-right: 16px;
+  }
+  .ui.modal.pledges .modal-pledge.modal-pledge-noreward {
+    margin-bottom: 25px;
+  }
+  .ui.modal.pledges .modal-pledge.modal-pledge-noreward .pledge-header + p {
+    margin: 33px 0 30px 23px;
+    font-size: 15px;
+    width: 80%;
+    line-height: 24px;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge {
+    padding-top: 14px;
+    padding-bottom: 9px;
+        grid-template-areas: 'sec1' 'sec3' 'sec2' 'sec4';
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header {
+    position: relative;
+    padding: 0 0 10px 0;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button {
+    position: relative;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button label {
+    margin-top: -5px;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button label .real-button {
+    margin-top: 22px;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header .radio-button .limit {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    position: absolute;
+    top: 36px;
+    left: 41px;
+    letter-spacing: 0px;
+    font-size: 14px;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header + p {
+    margin: 23px 0 30px 23px;
+    font-size: 15px;
+    width: 83%;
+    line-height: 24px;
+  }
+  .ui.modal.pledges .modal-pledge.limited-pledge .back-left {
+    margin: -6px 0 24px 23px;
+    text-align: start;
+  }
+  .ui.modal.pledges .modal-pledge .payment {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ui.modal.pledges .modal-pledge.on .payment {
+    max-height: 1000px;
+    padding: 31px 0px 15px;
+    width: 100%;
+    -webkit-transition: all 0.7s;
+    transition: all 0.7s;
+  }
+  .ui.modal.pledges .modal-pledge.on .payment::before {
+    left: 0;
+    width: 100%;
+  }
+  .ui.modal.pledges .modal-pledge.on .payment p:first-child {
+    font-size: 15px;
+    letter-spacing: -0.5px;
+  }
+  .ui.modal.pledges .modal-pledge.on .payment .pay {
+    padding-top: 18px;
+  }
+  .ui.modal.pledges .modal-pledge.on .payment .pay .proceed {
+    width: 115px;
+    margin-left: 15px;
+  }
+  .thanks .content {
+    top: 50%;
+    width: 88%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .thanks .content .done {
+    width: 63px;
+    margin: 32px 0 21px;
+  }
+  .thanks .content .description .ui.header {
+    font-size: 19px;
+    margin-bottom: 24px;
+  }
+  .thanks .content .description p:last-child {
+    line-height: 24px;
+    font-size: 13px;
+    letter-spacing: 0.44px;
+  }
+  .thanks .content .ui.positive {
+    margin-bottom: 35px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
