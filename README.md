@@ -4,7 +4,7 @@
 
 This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-- [Solution URL](https://www.frontendmentor.io/solutions/blogr-landing-page-vZDgmHZ83)
+- [Solution URL](https://www.frontendmentor.io/solutions/crowdfunding-product-page-RE3QiS9wU)
 - [Live Site URL](https://crowdfunding-product-page-omarmo.vercel.app/)
 
 ## Table of contents
