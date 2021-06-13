@@ -142,7 +142,7 @@ main section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .section1 .main-logo {
@@ -363,7 +363,7 @@ main section {
 .section3 .pledges {
   border: 1px solid rgba(122, 122, 122, 0.2);
   border-radius: 10px;
-  padding: 37px 30px 30px;
+  padding: 37px 29px 28px;
 }
 
 .section3 .pledges .pledge-title {
