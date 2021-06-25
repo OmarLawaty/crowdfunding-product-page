@@ -38,12 +38,11 @@ const pledgesBoard = {
 modalPledge('show');
 disableOutOfStock();
 toPercent();
+updateAll();
 
 // // // // // Global variables // // // // // //
 const pledgesModalCards = document.querySelectorAll('.modal-pledge');
 const fastSelection = document.querySelectorAll('.pledges');
-const pledgesLeft = document.querySelectorAll('.pledges-left');
-const pledgesModalLeft = document.querySelectorAll('.pledges-left-modal');
 
 // // // // // Main functions // // // // //
 // Bookmark button
@@ -210,32 +209,34 @@ document.querySelector('.got-it').onclick = () => {
 };
 
 // // // // // // // //
-// To USD
-const toUSD = number => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0
-  }).format(number);
-};
-
-// // // // // // // //
 // Update all values
 function updateAll() {
-  document.querySelector('.collected-money').innerHTML = toUSD(
-    pledgesBoard.totalEarnings.collected
-  );
+  document.querySelector('.collected-money').innerHTML = new Intl.NumberFormat(
+    'en-US',
+    {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }
+  ).format(pledgesBoard.totalEarnings.collected);
 
-  document.querySelector('.total-money').innerHTML = toUSD(
-    pledgesBoard.totalEarnings.total
-  );
+  document.querySelector('.total-money').innerHTML = new Intl.NumberFormat(
+    'en-US',
+    {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }
+  ).format(pledgesBoard.totalEarnings.total);
 
   document.querySelector('.total-backers').innerHTML =
     new Intl.NumberFormat().format(pledgesBoard.totalBackers);
 
   for (let i = 1; i < pledges.length; i++) {
-    pledgesLeft[i - 1].innerHTML = pledges[i].left;
-    pledgesModalLeft[i - 1].innerHTML = pledges[i].left;
+    document.querySelectorAll('.pledges-left')[i - 1].innerHTML =
+      pledges[i].left;
+    document.querySelectorAll('.pledges-left-modal')[i - 1].innerHTML =
+      pledges[i].left;
   }
   disableOutOfStock();
   toPercent();
