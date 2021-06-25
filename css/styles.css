@@ -476,6 +476,7 @@ main section {
 .section3 .pledges.disabled .pledge-info .select {
   background-color: #7a7a7a;
   font: 700 13px 'Commissioner', sans-serif;
+  pointer-events: none;
 }
 
 .section3 .pledges.disabled .pledge-info p .pledges-left {
@@ -650,7 +651,7 @@ main section {
   margin-bottom: 23px;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'sec1 sec1 sec1 sec2' 'sec3 sec3 sec3 sec3' '. . . .' 'sec4 sec4 sec4 sec4';
+      grid-template-areas: 'sec1 sec1 sec1 sec2' 'sec3 sec3 sec3 sec3' '. . . .' 'sec4 sec4 sec4 sec4';
 }
 
 .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header {
@@ -852,6 +853,11 @@ main section {
 .ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button label, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button label {
   color: #7a7a7a;
   cursor: default;
+  pointer-events: none;
+}
+
+.ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button label input, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button label input {
+  pointer-events: none;
 }
 
 .ui.modal.pledges .modal-pledge.modal-pledge-noreward.disabled .pledge-header .radio-button .real-button, .ui.modal.pledges .modal-pledge.limited-pledge.disabled .pledge-header .radio-button .real-button {
@@ -1322,7 +1328,7 @@ main section {
   .ui.modal.pledges .modal-pledge.limited-pledge {
     padding-top: 14px;
     padding-bottom: 9px;
-        grid-template-areas: 'sec1' 'sec3' 'sec2' 'sec4';
+        grid-template-areas: 'sec1' 'sec3' 'sec2' 'sec4';
   }
   .ui.modal.pledges .modal-pledge.limited-pledge .pledge-header {
     position: relative;

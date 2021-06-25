@@ -40,7 +40,7 @@
       rel="stylesheet"
     />
 
-    <!-- CSS & JS -->
+    <!-- Link CSS & JS -->
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="./js/app.js" defer></script>
 
@@ -79,9 +79,7 @@
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
         <div class="buttons">
-          <button class="global-back global open-menu">
-            Back this project
-          </button>
+          <button class="global-back open-menu">Back this project</button>
 
           <button class="bookmark">
             <span class="bookmark-icon">
@@ -99,8 +97,8 @@
       <section class="section2">
         <div class="numbers">
           <div class="earnings">
-            <h2>$ <span class="paid-money">89,914</span></h2>
-            <p>of $ <span class="total-money">100,000</span> backed</p>
+            <h2 class="collected-money">$89,914</h2>
+            <p>of <span class="total-money">$100,000</span> backed</p>
           </div>
           <div class="backers">
             <h2 class="total-backers">5,007</h2>
@@ -133,7 +131,7 @@
             </p>
           </div>
         </div>
-        <div class="pledges left-25-kit">
+        <div class="pledges bamboo-stand">
           <div class="pledge-title">
             <h2>Bamboo Stand</h2>
             <p>Pledge $25 or more</p>
@@ -144,16 +142,11 @@
             Backer member list.
           </p>
           <div class="pledge-info">
-            <p>
-              <span class="more-25-backers pledges-left left-25">101</span
-              ><span> left</span>
-            </p>
-            <button class="select select-25 open-menu ui button left-25-button">
-              Select Reward
-            </button>
+            <p><span class="pledges-left">101</span><span> left</span></p>
+            <button class="select open-menu ui button">Select Reward</button>
           </div>
         </div>
-        <div class="pledges left-75-kit">
+        <div class="pledges black-edition-stand">
           <div class="pledge-title">
             <h2>Black Edition Stand</h2>
             <p>Pledge $75 or more</p>
@@ -164,16 +157,11 @@
             included.
           </p>
           <div class="pledge-info">
-            <p>
-              <span class="more-75-backers pledges-left left-75">64</span
-              ><span> left</span>
-            </p>
-            <button class="select select-75 open-menu ui button left-75-button">
-              Select Reward
-            </button>
+            <p><span class="pledges-left">64</span><span> left</span></p>
+            <button class="select open-menu ui button">Select Reward</button>
           </div>
         </div>
-        <div class="pledges left-200-kit">
+        <div class="pledges mahogany-special-edition">
           <div class="pledge-title">
             <h2>Mahogany Special Edition</h2>
             <p>Pledge $200 or more</p>
@@ -184,15 +172,8 @@
             Shipping is included.
           </p>
           <div class="pledge-info">
-            <p>
-              <span class="more-200-backers pledges-left left-200">0</span
-              ><span> left</span>
-            </p>
-            <button
-              class="select select-200 open-menu ui button left-200-button"
-            >
-              Select Reward
-            </button>
+            <p><span class="pledges-left">0</span><span> left</span></p>
+            <button class="select open-menu ui button">Select Reward</button>
           </div>
         </div>
       </section>
@@ -208,19 +189,13 @@
         </p>
       </div>
 
-      <div
-        class="
-          modal-pledge-noreward modal-pledge
-          select-noreward-pledge
-          noreward-modal
-        "
-      >
+      <div class="modal-pledge-noreward no-reward modal-pledge">
         <div class="pledge-header">
           <label for="no-reward">
             <input
               type="radio"
               name="pledge-selected"
-              class="checked noreward"
+              class="checked"
               value="no-reward"
               id="no-reward"
             />
@@ -238,39 +213,25 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount1" class="ui label more-1-input-container"
-                >$<input
-                  type="number"
-                  placeholder="Amount"
-                  id="amount1"
-                  min="1"
-                  class="more-1-input"
+              <label for="amount1" class="ui label"
+                >$<input type="number" placeholder="Amount" id="amount1"
               /></label>
             </div>
             <div class="actions">
-              <button class="proceed more-1 no-reward proceed-valid approve">
-                Continue
-              </button>
+              <button class="proceed approve">Continue</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="
-          modal-pledge
-          left-25-pledges-modal
-          select-25-pledge
-          limited-pledge
-        "
-      >
+      <div class="modal-pledge bamboo-stand limited-pledge">
         <div class="pledge-header">
           <div class="radio-button">
             <label for="25-or-more"
               ><input
                 type="radio"
                 name="pledge-selected"
-                class="checked left-25-pledges select-25-pledges"
+                class="checked"
                 value="25-or-more"
                 id="25-or-more"
               />
@@ -288,7 +249,7 @@
         </p>
 
         <p class="back-left">
-          <span class="more-25-backers pledges-left left-25">101</span>
+          <span class="pledges-left-modal pledges-left">101</span>
           <span>left</span>
         </p>
 
@@ -296,39 +257,25 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount2" class="ui label more-25-input-container"
-                >$<input
-                  type="number"
-                  id="amount2"
-                  min="25"
-                  placeholder="25"
-                  class="more-25-input"
+              <label for="amount2" class="ui label"
+                >$<input type="number" id="amount2" placeholder="25"
               /></label>
             </div>
             <div class="actions">
-              <button class="proceed more-25 proceed-valid approve">
-                Continue
-              </button>
+              <button class="proceed approve">Continue</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="
-          modal-pledge
-          left-75-pledges-modal
-          select-75-pledge
-          limited-pledge
-        "
-      >
+      <div class="modal-pledge black-edition-stand limited-pledge">
         <div class="pledge-header">
           <div class="radio-button">
             <label for="75-or-more"
               ><input
                 type="radio"
                 name="pledge-selected"
-                class="checked left-75-pledges select-75-pledges"
+                class="checked"
                 value="75-or-more"
                 id="75-or-more"
               />
@@ -345,7 +292,7 @@
         </p>
 
         <p class="back-left">
-          <span class="more-75-backers pledges-left left-75">64</span>
+          <span class="pledges-left-modal pledges-left">64</span>
           <span>left</span>
         </p>
 
@@ -353,40 +300,25 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount3" class="ui label more-75-input-container"
-                >$
-                <input
-                  type="number"
-                  id="amount3"
-                  min="75"
-                  placeholder="75"
-                  class="more-75-input"
+              <label for="amount3" class="ui label"
+                >$ <input type="number" id="amount3" placeholder="75"
               /></label>
             </div>
             <div class="actions">
-              <button class="proceed more-75 proceed-valid approve">
-                Continue
-              </button>
+              <button class="proceed approve">Continue</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="
-          modal-pledge
-          left-200-pledges-modal
-          select-200-pledge
-          limited-pledge
-        "
-      >
+      <div class="modal-pledge mahogany-special-edition limited-pledge">
         <div class="pledge-header">
           <div class="radio-button">
             <label for="200-or-more"
               ><input
                 type="radio"
                 name="pledge-selected"
-                class="checked left-200-pledges select-200-pledges"
+                class="checked"
                 value="200-or-more"
                 id="200-or-more"
               />
@@ -404,7 +336,7 @@
         </p>
 
         <p class="back-left">
-          <span class="more-200-backers pledges-left left-200">0</span>
+          <span class="pledges-left-modal pledges-left">0</span>
           <span>left</span>
         </p>
 
@@ -412,19 +344,12 @@
           <p>Enter your pledge</p>
           <div class="pay">
             <div class="ui labeled input">
-              <label for="amount4" class="ui label more-200-input-container"
-                >$<input
-                  type="number"
-                  placeholder="200"
-                  id="amount4"
-                  min="200"
-                  class="more-200-input"
+              <label for="amount4" class="ui label"
+                >$<input type="number" placeholder="200" id="amount4"
               /></label>
             </div>
             <div class="actions">
-              <button class="proceed more-200 proceed-valid approve">
-                Continue
-              </button>
+              <button class="proceed approve">Continue</button>
             </div>
           </div>
         </div>

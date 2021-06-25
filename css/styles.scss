@@ -450,6 +450,7 @@ main {
         .select {
           background-color: $Dark-gray;
           font: 700 13px 'Commissioner', sans-serif;
+          pointer-events: none;
         }
 
         p {
@@ -770,6 +771,11 @@ main {
           label {
             color: $Dark-gray;
             cursor: default;
+            pointer-events: none;
+
+            input {
+              pointer-events: none;
+            }
           }
 
           .real-button {

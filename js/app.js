@@ -1,177 +1,62 @@
-// Global variables
-const proceedButton = document.querySelectorAll('.proceed');
-const paymentPledge = document.querySelectorAll('.modal-pledge');
-const radioButtons = document.querySelectorAll('.checked');
-const fastSelectPledge = document.querySelectorAll('.select');
-const globalBack = document.querySelector('.global-back');
-const pledgesModal = document.querySelector('.modal.pledges');
-const allSelectPledges = document.querySelectorAll('.open-menu');
-const main = document.querySelector('main');
-const bookmark = document.querySelector('.bookmark');
+// Pledges Object
+const pledges = [
+  {
+    name: 'no-reward',
+    minimum: 1,
+    left: 0
+  },
 
-let paidMoney = document
-  .querySelector('.paid-money')
-  .innerHTML.replace(',', '');
-const totalMoney = document
-  .querySelector('.total-money')
-  .innerHTML.replace(',', '');
+  {
+    name: 'bamboo-stand',
+    minimum: 25,
+    left: 101
+  },
 
-let click = 'show';
+  {
+    name: 'black-edition-stand',
+    minimum: 75,
+    left: 64
+  },
 
-// After The Page Loads
+  {
+    name: 'mahogany-special-edition',
+    minimum: 200,
+    left: 0
+  }
+];
+
+const pledgesBoard = {
+  totalEarnings: {
+    collected: 89914,
+    total: 100000
+  },
+
+  totalBackers: 5007
+};
+
+// // // // // On page loading // // // // // //
+modalPledge('show');
 disableOutOfStock();
-toPercent(paidMoney, totalMoney);
+toPercent();
 
-// Remove Thanks Modal
-document.querySelector('.got-it').onclick = () => {
-  document.querySelector('.thanks').classList.add('closed');
-  document.body.classList.remove('no-slider');
-  setAtTheTop(document.querySelector('.section2'), window);
-};
+// // // // // Global variables // // // // // //
+const pledgesModalCards = document.querySelectorAll('.modal-pledge');
+const fastSelection = document.querySelectorAll('.pledges');
+const pledgesLeft = document.querySelectorAll('.pledges-left');
+const pledgesModalLeft = document.querySelectorAll('.pledges-left-modal');
 
-// Payment Functions
-proceedButton.forEach(Element => {
-  Element.addEventListener('click', function (e) {
-    const inputField = document.querySelector(
-      '.' + e.target.classList[1] + '-input'
-    );
-    const inputFieldContainer = document.querySelector(
-      '.' + e.target.classList[1] + '-input-container'
-    );
-
-    // Payment Check Variables
-    // Input Value
-    const inputValue = Number(inputField.value);
-
-    // Min Value
-    const minValue = Number(inputField.getAttribute('min'));
-
-    // Compare Values
-    if (inputValue >= minValue) {
-      // Add Total Paid Money
-      paidMoney = Number(paidMoney) + inputValue;
-
-      // Check The Length Of The Number To Add Comma At The Correct Place
-      if (paidMoney.toString().length == 5) {
-        document.querySelector('.paid-money').innerHTML = addComma(
-          paidMoney,
-          2
-        );
-      } else if (paidMoney.toString().length == 6) {
-        document.querySelector('.paid-money').innerHTML = addComma(
-          paidMoney,
-          3
-        );
-      }
-
-      // Add Total Backers
-      let totalBackers = Number(
-        document.querySelector('.total-backers').innerHTML.replace(',', '')
-      );
-
-      totalBackers++;
-      document.querySelector('.total-backers').innerHTML = addComma(
-        totalBackers,
-        1
-      );
-
-      // Decrease Pledges Left
-      let backersLeft = document.querySelectorAll(
-        '.' + e.target.classList[1] + '-backers'
-      );
-
-      backersLeft.forEach(Element => {
-        Element.innerHTML = Number(Element.innerHTML) - 1;
-        backersLeft.innerHTML = Element.innerHTML;
-      });
-
-      // Check Out Of Stock Pledges
-      disableOutOfStock();
-
-      // Show Thanks Modal If True
-      document.querySelector('.thanks').classList.remove('closed');
-      document.body.classList.add('no-slider');
-
-      // Pledges Modal setting
-      Element.classList.add('approve');
-      click = 'hide';
-
-      // Convert The Value To Percent
-      toPercent(paidMoney, totalMoney);
-
-      // Remove Error Message
-      inputFieldContainer.classList.remove('error');
-    } else {
-      // Pledges Modal setting
-      Element.classList.remove('approve');
-
-      // Add Error Message
-      inputFieldContainer.classList.add('error');
-    }
-
-    // Pledges Modal setting
-    click = 'show';
-  });
-});
-
-// Select Active Radio Button
-pledgesModal.onclick = e => {
-  const target = e.target;
-  if (target.classList[0] == 'checked' || target.tagName == 'label') {
-    const pledgePayment = document.querySelector(
-      '.' + target.classList[1] + '-modal'
-    ).classList;
-    if (target.checked) {
-      paymentPledge.forEach(Element => {
-        Element.classList.remove('on');
-      });
-
-      pledgePayment.add('on');
-      setTimeout(
-        setAtTheTop(
-          document.querySelector('.on'),
-          document.querySelector('.dimmer.modals')
-        ),
-        200
-      );
-    }
-  }
-};
-
-// Fast Selection
-main.onclick = e => {
-  if (e.target.classList[2] == 'open-menu') {
-    paymentPledge.forEach(Element => {
-      Element.classList.remove('on');
-    });
-  }
-  if (e.target.classList[0] == 'select') {
-    document
-      .querySelector('.' + e.target.classList[1] + '-pledge')
-      .classList.add('on');
-    document.querySelector(
-      '.' + e.target.classList[1] + '-pledges'
-    ).checked = true;
-
-    setAtTheTop(
-      document.querySelector('.on'),
-      document.querySelector('.dimmer.modals')
-    );
-  }
-};
-
-// Bookmark To Bookmarked
+// // // // // Main functions // // // // //
+// Bookmark button
+const bookmark = document.querySelector('.bookmark');
+const bookmarkText = document.querySelector(`.bookmark-caption`);
 bookmark.onclick = () => {
-  const bookmarkCaption = document.querySelector('.bookmark-caption');
-  if (bookmarkCaption.innerHTML == 'Bookmark') {
-    bookmarkCaption.innerHTML = 'Bookmarked';
-    bookmark.classList.add('bookmarked');
-  } else {
-    bookmarkCaption.innerHTML = 'Bookmark';
-    bookmark.classList.remove('bookmarked');
-  }
+  bookmarkText.innerHTML === 'Bookmark'
+    ? (bookmarkText.innerHTML = 'Bookmarked')
+    : (bookmarkText.innerHTML = 'Bookmark');
+  bookmark.classList.toggle('bookmarked');
 };
 
+// // // // // // // //
 // Nav Toggler
 const navToggler = document.querySelector('.humburger');
 const nav = document.querySelector('nav');
@@ -181,37 +66,86 @@ navToggler.addEventListener('click', () => {
   document.body.classList.toggle('no-slider');
 });
 
-// Helper Functions
-// Disable Out Of Stock Pledges
-function disableOutOfStock() {
-  const pledgesLeft = document.querySelectorAll('.pledges-left');
-  pledgesLeft.forEach(Element => {
-    if (Element.innerHTML <= '0') {
+// // // // // // // //
+// fast selection
+fastSelection.forEach(element => {
+  element.onclick = e => {
+    if (e.target.classList.contains('select')) {
       document.querySelector(
-        '.' + Element.classList[2] + '-pledges'
-      ).outerHTML =
-        '<input type="radio" name="pledge-selected" class="checked left-200-pledges" value="200-or-more" id="200-or-more" disabled>';
-
-      const disabledkit = document.querySelector(
-        '.' + Element.classList[2] + '-kit'
+        `.${element.classList[1]}.modal-pledge input[type=radio]`
+      ).checked = true;
+      checkActiveRadio();
+      setTimeout(
+        setAtTheTop(
+          document.querySelector('.on'),
+          document.querySelector('.dimmer.modals')
+        ),
+        200
       );
+    }
+  };
+});
 
-      const disabledButton = document.querySelector(
-        '.' + Element.classList[2] + '-button'
+// // // // // // // //
+// Select active radio button
+document.querySelectorAll('input[type=radio]').forEach(
+  elem =>
+    (elem.onchange = e => {
+      checkActiveRadio();
+      setTimeout(
+        setAtTheTop(
+          document.querySelector('.on'),
+          document.querySelector('.dimmer.modals')
+        ),
+        200
       );
+    })
+);
 
-      const disabledPledge = document.querySelector(
-        '.' + Element.classList[2] + '-pledges-modal'
-      );
+// // // // // // // //
+// Reset all radio buttons when click on the main back button
+document.querySelector('.global-back').onclick = () => {
+  restAll();
+};
 
-      disabledkit.classList.add('disabled');
-      disabledButton.classList.add('disabled');
-      disabledPledge.classList.add('disabled');
-      disabledButton.innerHTML = ' Out of stock';
+// // // // // Semantic UI // // // // //
+function modalPledge(state) {
+  $('.pledges.modal').modal('attach events', '.open-menu', state);
+}
+
+// // // // // Helper functions // // // // //
+// set active
+function pledgeCardsModal(parent) {
+  parent.onclick = e => {
+    if (e.target.classList.contains('checked')) {
+      pledgesModalCards.forEach(elem => elem.classList.remove('on'));
+      parent.classList.add('on');
+    }
+  };
+}
+
+// // // // // // // //
+// Check the active radio button
+function checkActiveRadio() {
+  pledgesModalCards.forEach(elem => elem.classList.remove('on'));
+  pledgesModalCards.forEach(elem => {
+    if (
+      document.querySelector(`.${elem.classList[1]} input[type=radio]`).checked
+    ) {
+      elem.classList.add('on');
+      checkValid(elem);
     }
   });
 }
 
+// // // // // // // //
+// Reset radio buttons
+function restAll() {
+  document.querySelectorAll('.checked').forEach(elem => (elem.checked = false));
+  checkActiveRadio();
+}
+
+// // // // // // // //
 // Go To
 function setAtTheTop(theElement, whereToCenter = 'window') {
   setTimeout(() => {
@@ -227,9 +161,107 @@ function setAtTheTop(theElement, whereToCenter = 'window') {
   }, 500);
 }
 
+// // // // // // // //
+// Check if valid
+function checkValid(parent) {
+  let activeCard = document.querySelector(`.${parent.classList[1]} .proceed`);
+  activeCard.onclick = () => {
+    for (let i = 0; i < pledges.length; i++) {
+      if (pledges[i].name == parent.classList[1]) {
+        const input = document.querySelector(
+          `.${parent.classList[1]} input[type=number]`
+        );
+
+        // Show thanks modal if true
+        document.querySelector('.thanks').classList.remove('closed');
+        document.body.classList.add('no-slider');
+
+        // update all
+        if (input.value >= pledges[i].minimum) {
+          pledgesBoard.totalEarnings.collected =
+            Number(pledgesBoard.totalEarnings.collected) + Number(input.value);
+          pledgesBoard.totalBackers++;
+          pledges[i].left--;
+          updateAll();
+
+          // Pledges modal setting
+          activeCard.classList.add('approve');
+
+          // Remove error message
+          input.parentElement.classList.remove('error');
+        } else {
+          // Pledges modal setting
+          activeCard.classList.remove('approve');
+
+          // Add error message
+          input.parentElement.classList.add('error');
+        }
+      }
+    }
+  };
+}
+
+// // // // // // // //
+// Remove thanks modal
+document.querySelector('.got-it').onclick = () => {
+  document.querySelector('.thanks').classList.add('closed');
+  document.body.classList.remove('no-slider');
+  setAtTheTop(document.querySelector('.section2'), window);
+};
+
+// // // // // // // //
+// To USD
+const toUSD = number => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0
+  }).format(number);
+};
+
+// // // // // // // //
+// Update all values
+function updateAll() {
+  document.querySelector('.collected-money').innerHTML = toUSD(
+    pledgesBoard.totalEarnings.collected
+  );
+
+  document.querySelector('.total-money').innerHTML = toUSD(
+    pledgesBoard.totalEarnings.total
+  );
+
+  document.querySelector('.total-backers').innerHTML =
+    new Intl.NumberFormat().format(pledgesBoard.totalBackers);
+
+  for (let i = 1; i < pledges.length; i++) {
+    pledgesLeft[i - 1].innerHTML = pledges[i].left;
+    pledgesModalLeft[i - 1].innerHTML = pledges[i].left;
+  }
+  disableOutOfStock();
+  toPercent();
+}
+
+// // // // // // // //
+// Disable out of stock
+function disableOutOfStock() {
+  for (let i = 1; i < pledges.length; i++) {
+    if (pledges[i].left <= 0) {
+      document
+        .querySelectorAll(`.${pledges[i].name}`)
+        .forEach(ele => ele.classList.add('disabled'));
+      document
+        .querySelector(`.${pledges[i].name} .select`)
+        .classList.add('disabled');
+    }
+  }
+}
+
+// // // // // // // //
 // To Percent
-function toPercent(earned, total) {
-  let earningsInPercent = (earned * 100) / total;
+function toPercent() {
+  let earningsInPercent =
+    (pledgesBoard.totalEarnings.collected * 100) /
+    pledgesBoard.totalEarnings.total;
 
   if (earningsInPercent <= 100) {
     document.querySelector('.earned-money-bar').style.width =
@@ -238,26 +270,3 @@ function toPercent(earned, total) {
     document.querySelector('.earned-money-bar').style.width = 100 + '%';
   }
 }
-
-// Add Comma
-function addComma(withoutComma, commaIndex) {
-  return (
-    withoutComma.toString().substring(0, commaIndex) +
-    ',' +
-    withoutComma
-      .toString()
-      .substring(commaIndex, withoutComma.toString().length)
-  );
-}
-
-// Reset All Radio Buttons
-globalBack.onclick = e => {
-  radioButtons.forEach(Element => {
-    Element.checked = false;
-  });
-};
-
-// SemanticUI
-window.onmousemove = () => {
-  $('.pledges.modal').modal('attach events', '.open-menu', click);
-};
