@@ -172,10 +172,6 @@ function checkValid(parent) {
           `.${parent.classList[1]} input[type=number]`
         );
 
-        // Show thanks modal if true
-        document.querySelector('.thanks').classList.remove('closed');
-        document.body.classList.add('no-slider');
-
         // update all
         if (input.value >= pledges[i].minimum) {
           pledgesBoard.totalEarnings.collected =
@@ -186,6 +182,10 @@ function checkValid(parent) {
 
           // Pledges modal setting
           activeCard.classList.add('approve');
+
+          // Show thanks modal
+          document.querySelector('.thanks').classList.remove('closed');
+          document.body.classList.add('no-slider');
 
           // Remove error message
           input.parentElement.classList.remove('error');
