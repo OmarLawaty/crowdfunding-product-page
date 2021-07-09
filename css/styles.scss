@@ -16,11 +16,6 @@ $light-Gray: hsla(0, 0%, 48%, 0.7);
 *::after {
   box-sizing: border-box;
   scroll-behavior: smooth;
-}
-
-button,
-label,
-input {
   -webkit-tap-highlight-color: transparent;
 }
 
